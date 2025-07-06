@@ -53,7 +53,9 @@ function LandingPage() {
           </div>
         </section>
         <section className="mt-15 px-10" id="features">
-          <h3 className="text-center text-[#10011c] text-2xl">Key Features</h3>
+          <h3 className="text-center text-[#4B0082] text-xl font-semibold">
+            KEY FEATURES
+          </h3>
           <p className="text-center text-3xl mt-6 font-semibold">
             Finding projects and Collaborating made easy
           </p>
@@ -82,7 +84,7 @@ function LandingPage() {
                 </p>
               </div>
             </div>
-            <div className=" h-fit py-3 flex gap-5">
+            <div className=" h-fit py-3  flex gap-5">
               <div className="w-[6rem]  bg-[#4B0082] rounded-lg flex justify-center items-center">
                 <HiOutlineLightBulb className="text-4xl text-white" />
               </div>
@@ -118,6 +120,54 @@ function LandingPage() {
                   ongoing team communication.{" "}
                 </p>
               </div>
+            </div>
+          </div>
+        </section>
+        <section className="mt-15 px-10">
+          <h3 className="text-center text-[#4B0082] text-xl font-semibold ">
+            HOW IT WORKS
+          </h3>
+          <div className="flex items-center gap-15">
+            <div className="w-1/2 flex flex-col gap-4.5">
+              <div className="border-1 border-[#4B0082]  min-h-19   rounded-md flex items-center gap-5 pl-6">
+                  <div className="border-2 border-[#4B0082] w-15 h-15 rounded-full flex justify-center items-center ">
+                    <p className="font-bold text-3xl text-[#4b0082]  text-center align-middle">1</p>
+                  </div>
+                  <div>
+                    <p className="text-xl font-medium">Create a Profile</p>
+                    <p className="text-gray-700">Share your skills, interests, and Github Handle</p>
+                  </div>
+              </div>
+               <div className="border-1 border-[#4B0082]  min-h-19   rounded-md flex items-center gap-5 pl-6">
+                  <div className="border-2 border-[#ED9DA0] w-15 h-15 rounded-full flex justify-center items-center ">
+                    <p className="font-bold text-3xl text-[#ED9DA0]  text-center align-middle">2</p>
+                  </div>
+                  <div>
+                    <p className="text-xl font-medium">Join or Start a Project</p>
+                    <p className="text-gray-700 text-wrap">Explore live projects or launch your own with clear goals and team roles.</p>
+                  </div>
+              </div>
+               <div className="border-1 border-[#4B0082]  min-h-19  rounded-md flex items-center gap-5 pl-6">
+                  <div className="border-2 border-[#4B0082] w-15 h-15 rounded-full flex justify-center items-center ">
+                    <p className="font-bold text-3xl text-[#4b0082]  text-center align-middle">3</p>
+                  </div>
+                  <div>
+                    <p className="text-xl font-medium">Collaborate & Learn</p>
+                    <p className="text-gray-700">Work on issues, commit code, and learn from your peers.</p>
+                  </div>
+              </div>
+               <div className="border-1 border-[#4B0082] min-h-19   rounded-md flex items-center gap-5 pl-6">
+                  <div className="border-2 border-[#ED9DA0] w-15 h-15 rounded-full flex justify-center items-center ">
+                    <p className="font-bold text-3xl text-[#ED9DA0]  text-center align-middle">4</p>
+                  </div>
+                  <div>
+                    <p className="text-xl font-medium">Build Your Portfolio</p>
+                    <p className="text-gray-700 w-[80%]">Build real apps, get feedback, and show proof of teamwork and impact.</p>
+                  </div>
+              </div>
+            </div>
+            <div className="w-1/2 ">
+              <img src="src/assets/teamwork.jpg" alt="" />
             </div>
           </div>
         </section>
