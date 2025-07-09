@@ -2,6 +2,7 @@ import React from "react";
 import PurpleNavBar from "../components/PurpleNavBar";
 import dev from "../assets/dev2.svg";
 import { HiOutlineLightBulb } from "react-icons/hi";
+import { GiBeveledStar } from "react-icons/gi";
 
 function LandingPage() {
   return (
@@ -130,46 +131,181 @@ function LandingPage() {
           <div className="flex items-center gap-15">
             <div className="w-1/2 flex flex-col gap-4.5">
               <div className="border-1 border-[#4B0082]  min-h-19   rounded-md flex items-center gap-5 pl-6">
-                  <div className="border-2 border-[#4B0082] w-15 h-15 rounded-full flex justify-center items-center ">
-                    <p className="font-bold text-3xl text-[#4b0082]  text-center align-middle">1</p>
-                  </div>
-                  <div>
-                    <p className="text-xl font-medium">Create a Profile</p>
-                    <p className="text-gray-700">Share your skills, interests, and Github Handle</p>
-                  </div>
+                <div className="border-2 border-[#4B0082] w-15 h-15 rounded-full flex justify-center items-center ">
+                  <p className="font-bold text-3xl text-[#4b0082]  text-center align-middle">
+                    1
+                  </p>
+                </div>
+                <div>
+                  <p className="text-xl font-medium">Create a Profile</p>
+                  <p className="text-gray-700">
+                    Share your skills, interests, and Github Handle
+                  </p>
+                </div>
               </div>
-               <div className="border-1 border-[#4B0082]  min-h-19   rounded-md flex items-center gap-5 pl-6">
-                  <div className="border-2 border-[#ED9DA0] w-15 h-15 rounded-full flex justify-center items-center ">
-                    <p className="font-bold text-3xl text-[#ED9DA0]  text-center align-middle">2</p>
-                  </div>
-                  <div>
-                    <p className="text-xl font-medium">Join or Start a Project</p>
-                    <p className="text-gray-700 text-wrap">Explore live projects or launch your own with clear goals and team roles.</p>
-                  </div>
+              <div className="border-1 border-[#4B0082]  min-h-19   rounded-md flex items-center gap-5 pl-6">
+                <div className="border-2 border-[#ED9DA0] w-15 h-15 rounded-full flex justify-center items-center ">
+                  <p className="font-bold text-3xl text-[#ED9DA0]  text-center align-middle">
+                    2
+                  </p>
+                </div>
+                <div>
+                  <p className="text-xl font-medium">Join or Start a Project</p>
+                  <p className="text-gray-700 text-wrap">
+                    Explore live projects or launch your own with clear goals
+                    and team roles.
+                  </p>
+                </div>
               </div>
-               <div className="border-1 border-[#4B0082]  min-h-19  rounded-md flex items-center gap-5 pl-6">
-                  <div className="border-2 border-[#4B0082] w-15 h-15 rounded-full flex justify-center items-center ">
-                    <p className="font-bold text-3xl text-[#4b0082]  text-center align-middle">3</p>
-                  </div>
-                  <div>
-                    <p className="text-xl font-medium">Collaborate & Learn</p>
-                    <p className="text-gray-700">Work on issues, commit code, and learn from your peers.</p>
-                  </div>
+              <div className="border-1 border-[#4B0082]  min-h-19  rounded-md flex items-center gap-5 pl-6">
+                <div className="border-2 border-[#4B0082] w-15 h-15 rounded-full flex justify-center items-center ">
+                  <p className="font-bold text-3xl text-[#4b0082]  text-center align-middle">
+                    3
+                  </p>
+                </div>
+                <div>
+                  <p className="text-xl font-medium">Collaborate & Learn</p>
+                  <p className="text-gray-700">
+                    Work on issues, commit code, and learn from your peers.
+                  </p>
+                </div>
               </div>
-               <div className="border-1 border-[#4B0082] min-h-19   rounded-md flex items-center gap-5 pl-6">
-                  <div className="border-2 border-[#ED9DA0] w-15 h-15 rounded-full flex justify-center items-center ">
-                    <p className="font-bold text-3xl text-[#ED9DA0]  text-center align-middle">4</p>
-                  </div>
-                  <div>
-                    <p className="text-xl font-medium">Build Your Portfolio</p>
-                    <p className="text-gray-700 w-[80%]">Build real apps, get feedback, and show proof of teamwork and impact.</p>
-                  </div>
+              <div className="border-1 border-[#4B0082] min-h-19   rounded-md flex items-center gap-5 pl-6">
+                <div className="border-2 border-[#ED9DA0] w-15 h-15 rounded-full flex justify-center items-center ">
+                  <p className="font-bold text-3xl text-[#ED9DA0]  text-center align-middle">
+                    4
+                  </p>
+                </div>
+                <div>
+                  <p className="text-xl font-medium">Build Your Portfolio</p>
+                  <p className="text-gray-700 w-[80%]">
+                    Build real apps, get feedback, and show proof of teamwork
+                    and impact.
+                  </p>
+                </div>
               </div>
             </div>
             <div className="w-1/2 ">
               <img src="src/assets/teamwork.jpg" alt="" />
             </div>
           </div>
+        </section>
+        <section id="" className="mt-15 px-30 py-10 bg-gray-200">
+          <div className="flex justify-between items-center ">
+            <h3 className="text-5xl w-1/2 text-gray-800 font-semibold">
+              For Developers Who Want More Than Just Practice
+            </h3>
+            <div>
+              <ul className="flex flex-col gap-4">
+                <li className="flex gap-3 items-center text-2xl ">
+                  {" "}
+                  <GiBeveledStar className="text-[#4B0082] text-3xl font-bold" />
+                  <span>Real team experience</span>
+                </li>
+                <li className="flex gap-3 items-center text-2xl ">
+                  {" "}
+                  <GiBeveledStar className="text-[#4B0082] text-3xl font-bold" />{" "}
+                  <span>Resume worthy contributions </span>
+                </li>
+                <li className="flex gap-3 items-center text-2xl">
+                  <GiBeveledStar className="text-[#4B0082] text-3xl font-bold" />
+                  <span>Accountabily and learning</span>
+                </li>
+                <li className="flex gap-3 items-center text-2xl ">
+                  <GiBeveledStar className="text-[#4B0082] text-3xl font-bold" />
+                  <span>Community Support</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section className="mt-10 px-10">
+          <h3 className="text-center text-[#4B0082] text-xl font-semibold ">
+            TESTIMONIALS
+          </h3>
+
+          <div className="flex gap-6 mt-10">
+            <div className="flex  flex-col w-2/6 rounded-md shadow-xl p-4">
+              <div className="flex gap-3">
+                <div className="bg-[#4B0082] w-[50px] h-[50px] rounded-sm flex items-center justify-center ">
+                  <p className="text-white text-2xl font-bold text-center">
+                    AJ
+                  </p>
+                </div>
+                <div>
+                  <p className="text-sm font-semibold">Ama Jackson</p>
+                  <p className="text-sm text-gray-400">Frontend Developer</p>
+                </div>
+              </div>
+              <div className="mt-3">
+                <p className="text-sm text-gray-700 ">
+                  “Dev Collab helped me work on my first team project. I learned
+                  Git the real way and landed my first internship.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex  flex-col w-2/6 rounded-md shadow-xl p-4">
+              <div className="flex gap-3">
+                <div className="bg-[#4B0082] w-[50px] h-[50px] rounded-sm flex items-center justify-center ">
+                  <p className="text-white text-2xl font-bold text-center">
+                    AJ
+                  </p>
+                </div>
+                <div>
+                  <p className="text-sm font-semibold">Ama Jackson</p>
+                  <p className="text-sm text-gray-400">Frontend Developer</p>
+                </div>
+              </div>
+              <div className="mt-3">
+                <p className="text-sm text-gray-700 ">
+                  “Dev Collab helped me work on my first team project. I learned
+                  Git the real way and landed my first internship.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex  flex-col w-2/6 rounded-md shadow-xl p-4">
+              <div className="flex gap-3">
+                <div className="bg-[#4B0082] w-[50px] h-[50px] rounded-sm flex items-center justify-center ">
+                  <p className="text-white text-2xl font-bold text-center">
+                    AJ
+                  </p>
+                </div>
+                <div>
+                  <p className="text-sm font-semibold">Ama Jackson</p>
+                  <p className="text-sm text-gray-400">Frontend Developer</p>
+                </div>
+              </div>
+              <div className="mt-3">
+                <p className="text-sm text-gray-700 ">
+                  “Dev Collab helped me work on my first team project. I learned
+                  Git the real way and landed my first internship.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="mt-15 ">
+          <h2 className="text-xl md:text-[2rem] text-[#4B0082] text-center ">
+            Join DevCollab Today
+          </h2>
+          <p className="text-center font-normal text-md mt-2 mb-10">
+            Start Building. Start Collaborating.
+          </p>
+          <button className="border-2 border-[#4b0082] px-8 py-1 rounded-md block mx-auto text-xs font-semibold">
+            Join now
+          </button>
+        </section>
+        <section className="bg-[#4B0082] mt-10 h-[10rem] w-full text-xs text-white flex flex-col justify-center  font  -light gap-2">
+          <p className="text-center">DevCollab | Community-Driven Dev Growth</p>
+          <ul className="flex gap-2 text-white font-light justify-center">
+            <li>Github</li>
+            <li>|       Discord</li>
+            <li>|       Privacy</li>
+            <li>|       Terms</li>
+          </ul>
+          <p className="text-center">@ 2025 DevCollab. Built by devs, for devs.</p>
         </section>
       </div>
     </>
