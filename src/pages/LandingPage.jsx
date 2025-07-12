@@ -12,7 +12,7 @@ function LandingPage() {
           id="hero-section"
           className=" max-w-full min-w-full min-h-screen  [background-image:radial-gradient(circle_at_center,_#4B0082_0%,_#10001C_80%,_#10011C_100%)] px-8 md:px-20 lg:px-24 py-9.5 "
         >
-          <PurpleNavBar />
+          {/* <PurpleNavBar /> */}
           <div
             className={`w-full h-fit mt-20 flex justify-between  md:flex-row flex-col-reverse`}
           >
@@ -297,16 +297,7 @@ function LandingPage() {
             Join now
           </button>
         </section>
-        <section className="bg-[#4B0082] mt-10 h-[10rem] w-full text-xs text-white flex flex-col justify-center  font  -light gap-2">
-          <p className="text-center">DevCollab | Community-Driven Dev Growth</p>
-          <ul className="flex gap-2 text-white font-light justify-center">
-            <li>Github</li>
-            <li>|       Discord</li>
-            <li>|       Privacy</li>
-            <li>|       Terms</li>
-          </ul>
-          <p className="text-center">@ 2025 DevCollab. Built by devs, for devs.</p>
-        </section>
+        
       </div>
     </>
   );

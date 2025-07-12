@@ -7,11 +7,28 @@ import OverviewPage from "./pages/dashboard/pages/OverviewPage";
 import ProjectsPage from "./pages/dashboard/pages/ProjectsPage";
 import AccountPage from "./pages/dashboard/pages/AccountPage";
 import SettingsPage from "./pages/dashboard/pages/SettingsPage";
+import About from "./pages/AboutPage";
+import LandingPageLayout from "./layout/LandingPageLayout";
+import HowItWorksPage from "./pages/HowItWorksPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    Component: LandingPage,
+    Component: LandingPageLayout,
+    children:[
+      {
+        index: true,
+        Component: LandingPage
+      },
+      {
+        path: "about",
+        Component: About
+      },
+      {
+        path: "HowItWorks",
+        Component: HowItWorksPage
+      }
+    ]
   },
   {
     path: "/login",
@@ -39,6 +56,7 @@ const router = createBrowserRouter([
       }
     ],
   },
+  
 ]);
 function App() {
   return <RouterProvider router={router} />;
