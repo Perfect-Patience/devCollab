@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router';
 import logo from '../assets/logo.svg'
 
 function PurpleNavBar() {
@@ -15,9 +16,9 @@ function PurpleNavBar() {
         </div>
         <div className='nav '>
             <ul className='md:flex hidden  gap-10 text-white font-bold'>
-                <li>Home</li>
-                <li>How it works</li>
-                <li>About</li>
+                <NavLink to='/'>Home</NavLink>
+                <NavLink to="HowItWorks">How it works</NavLink>
+                <NavLink to="about">About</NavLink>
             </ul>
         </div>
         <div className='btns font-bold hidden md:flex gap-6'>
