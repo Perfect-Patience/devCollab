@@ -10,6 +10,7 @@ import SettingsPage from "./pages/dashboard/pages/SettingsPage";
 import About from "./pages/AboutPage";
 import LandingPageLayout from "./layout/LandingPageLayout";
 import HowItWorksPage from "./pages/HowItWorksPage";
+import ProjectListingPage from "./pages/ProjectListingPage";
 
 const router = createBrowserRouter([
   {
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
       }
     ],
   },
+  {
+    path: "explore",
+    Component: ProjectListingPage
+  }
   
 ]);
 function App() {
