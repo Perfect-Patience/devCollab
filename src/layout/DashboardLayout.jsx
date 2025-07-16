@@ -4,9 +4,9 @@ import Sidebar from '../components/Sidebar'
 
 const DashBoardLayout = () => {
   return (
-    <div className='flex'>
+    <div className='flex h-screen overflow-hidden'>
         <Sidebar />
-        <div>
+        <div className='p-10'>
             <Outlet />
         </div>
     </div>
