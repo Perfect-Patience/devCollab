@@ -10,28 +10,28 @@ function LandingPage() {
       <div className="w-full h-fit">
         <section
           id="hero-section"
-          className=" max-w-full min-w-full h-fit [background-image:radial-gradient(circle_at_center,_#4B0082_0%,_#10001C_80%,_#10011C_100%)] px-7 py-3.5"
+          className=" max-w-full min-w-full min-h-screen  [background-image:radial-gradient(circle_at_center,_#4B0082_0%,_#10001C_80%,_#10011C_100%)] px-8 md:px-20 lg:px-24 py-9.5 "
         >
-          <PurpleNavBar />
+          {/* <PurpleNavBar /> */}
           <div
             className={`w-full h-fit mt-20 flex justify-between  md:flex-row flex-col-reverse`}
           >
-            <div className="w-2/3">
-              <div className="text-white flex flex-col gap-6 text-6xl font-semibold">
+            <div className="md:w-2/3">
+              <div className="text-white flex flex-col gap-6 text-5xl text-center md:text-start  mt-10 md:mt-0 font-semibold">
                 <h2>Build Together.</h2>
                 <h2>Grow Faster.</h2>
               </div>
-              <p className="text-white md:w-3/5  w-[80%] mt-15 text-xl">
+              <p className="text-white md:w-3/5  w-[100%] mt-15 text-xl md:text-left text-center">
                 Dev Collab connects developers with real-world collaboration
                 opportunities. Start or join a project, improve your skills, and
                 grow your portfolio—together.
               </p>
 
-              <div className="text-white flex gap-7 mt-10">
-                <button className="bg-pink-400  border-2 border-[pink] py-2 px-5 rounded-4xl font-semibold text-[#4B0082]">
+              <div className="text-white flex md:flex-row flex-col gap-7 mt-10">
+                <button className="bg-pink-400 shrink-0 border-2 border-[pink] py-2 px-5 rounded-4xl font-semibold text-[#4B0082]">
                   Find A Project
                 </button>
-                <button className="border-2 border-[pink] py-2 px-5 rounded-4xl font-semibold">
+                <button className="border-2 border-[pink]  shrink-0 py-2 px-5 rounded-4xl font-semibold">
                   Start Collaborating
                 </button>
               </div>
@@ -53,16 +53,16 @@ function LandingPage() {
             </div>
           </div>
         </section>
-        <section className="mt-15 px-10" id="features">
+        <section className="mt-15 md:px-20 px-6 flex justify-center  flex-col items-center" id="features" >
           <h3 className="text-center text-[#4B0082] text-xl font-semibold">
             KEY FEATURES
           </h3>
-          <p className="text-center text-3xl mt-6 font-semibold">
+          <p className="text-center text-2xl md:text-3xl mt-6 font-semibold">
             Finding projects and Collaborating made easy
           </p>
-          <div className="grid grid-cols-2 gap-x-10 gap-y-6 mt-15">
+          <div className="grid  md:grid-cols-2 gap-x-15 gap-y-6 mt-15 md:w-[80%]">
             <div className=" h-fit py-3 flex gap-5">
-              <div className="w-[6rem]  bg-[#4B0082] rounded-lg flex justify-center items-center">
+              <div className="w-[4rem] h-[4rem] shrink-0  bg-[#4B0082] rounded-lg flex justify-center items-center">
                 <HiOutlineLightBulb className="text-4xl text-white" />
               </div>
               <div className="">
@@ -73,8 +73,8 @@ function LandingPage() {
                 </p>
               </div>
             </div>
-            <div className=" h-fit py-3 flex gap-5">
-              <div className="w-[6rem]  bg-[#4B0082] rounded-lg flex justify-center items-center">
+            <div className=" h-fit py-3 flex gap-5 ">
+              <div className="w-[4rem] h-[4rem] shrink-0  bg-[#4B0082] rounded-lg flex justify-center items-center">
                 <HiOutlineLightBulb className="text-4xl text-white" />
               </div>
               <div className="">
@@ -86,7 +86,7 @@ function LandingPage() {
               </div>
             </div>
             <div className=" h-fit py-3  flex gap-5">
-              <div className="w-[6rem]  bg-[#4B0082] rounded-lg flex justify-center items-center">
+              <div className="w-[4rem] h-[4rem] shrink-0  bg-[#4B0082] rounded-lg flex justify-center items-center">
                 <HiOutlineLightBulb className="text-4xl text-white" />
               </div>
               <div className="">
@@ -99,7 +99,7 @@ function LandingPage() {
             </div>
 
             <div className=" h-fit py-3 flex gap-5">
-              <div className="w-[6rem]  bg-[#4B0082] rounded-lg flex justify-center items-center">
+              <div className="w-[4rem] h-[4rem] shrink-0  bg-[#4B0082] rounded-lg flex justify-center items-center">
                 <HiOutlineLightBulb className="text-4xl text-white" />
               </div>
               <div className="">
@@ -111,7 +111,7 @@ function LandingPage() {
               </div>
             </div>
             <div className=" h-fit py-3 flex gap-5">
-              <div className="w-[6rem]  bg-[#4B0082] rounded-lg flex justify-center items-center">
+              <div className="w-[4rem] h-[4rem] shrink-0  bg-[#4B0082] rounded-lg flex justify-center items-center">
                 <HiOutlineLightBulb className="text-4xl text-white" />
               </div>
               <div className="">
@@ -124,14 +124,14 @@ function LandingPage() {
             </div>
           </div>
         </section>
-        <section className="mt-15 px-10">
+        <section className="mt-15  md:px-20 px-8">
           <h3 className="text-center text-[#4B0082] text-xl font-semibold ">
             HOW IT WORKS
           </h3>
-          <div className="flex items-center gap-15">
-            <div className="w-1/2 flex flex-col gap-4.5">
-              <div className="border-1 border-[#4B0082]  min-h-19   rounded-md flex items-center gap-5 pl-6">
-                <div className="border-2 border-[#4B0082] w-15 h-15 rounded-full flex justify-center items-center ">
+          <div className="flex flex-col-reverse lg:flex-row  items-center gap-15">
+            <div className="lg:w-1/2 flex flex-col gap-4.5">
+              <div className="border-1 border-[#4B0082]  lg:w-[70%]   rounded-md flex items-center gap-5 pl-6 py-2">
+                <div className="border-2 border-[#4B0082] w-15 h-15 shrink-0 rounded-full flex justify-center items-center ">
                   <p className="font-bold text-3xl text-[#4b0082]  text-center align-middle">
                     1
                   </p>
@@ -143,8 +143,8 @@ function LandingPage() {
                   </p>
                 </div>
               </div>
-              <div className="border-1 border-[#4B0082]  min-h-19   rounded-md flex items-center gap-5 pl-6">
-                <div className="border-2 border-[#ED9DA0] w-15 h-15 rounded-full flex justify-center items-center ">
+              <div className="border-1 border-[#4B0082]  min-h-19 lg:w-[70%]  rounded-md flex items-center gap-5  py-2 pl-6">
+                <div className="border-2 border-[#ED9DA0] w-15 h-15 shrink-0 rounded-full flex justify-center items-center ">
                   <p className="font-bold text-3xl text-[#ED9DA0]  text-center align-middle">
                     2
                   </p>
@@ -157,8 +157,8 @@ function LandingPage() {
                   </p>
                 </div>
               </div>
-              <div className="border-1 border-[#4B0082]  min-h-19  rounded-md flex items-center gap-5 pl-6">
-                <div className="border-2 border-[#4B0082] w-15 h-15 rounded-full flex justify-center items-center ">
+              <div className="border-1 border-[#4B0082]  min-h-19 lg:w-[70%] rounded-md flex items-center gap-5 py-2 pl-6">
+                <div className="border-2 border-[#4B0082] w-15 h-15 shrink-0 rounded-full flex justify-center items-center ">
                   <p className="font-bold text-3xl text-[#4b0082]  text-center align-middle">
                     3
                   </p>
@@ -170,8 +170,8 @@ function LandingPage() {
                   </p>
                 </div>
               </div>
-              <div className="border-1 border-[#4B0082] min-h-19   rounded-md flex items-center gap-5 pl-6">
-                <div className="border-2 border-[#ED9DA0] w-15 h-15 rounded-full flex justify-center items-center ">
+              <div className="border-1 border-[#4B0082] min-h-19 lg:w-[70%]  rounded-md flex items-center gap-5 py-2 pl-6">
+                <div className="border-2 border-[#ED9DA0] w-15 h-15 shrink-0 rounded-full flex justify-center items-center ">
                   <p className="font-bold text-3xl text-[#ED9DA0]  text-center align-middle">
                     4
                   </p>
@@ -185,33 +185,33 @@ function LandingPage() {
                 </div>
               </div>
             </div>
-            <div className="w-1/2 ">
+            <div className="md:w-1/2 ">
               <img src="src/assets/teamwork.jpg" alt="" />
             </div>
           </div>
         </section>
-        <section id="" className="mt-15 px-30 py-10 bg-gray-200">
-          <div className="flex justify-between items-center ">
-            <h3 className="text-5xl w-1/2 text-gray-800 font-semibold">
+        <section id="" className="mt-15 md:px-20 px-8 lg:min-h-[25rem] h-fit py-7 flex bg-gray-200">
+          <div className="flex md:justify-around flex-col md:flex-row items-center ">
+            <h3 className="text-2xl lg:text-3xl md:w-1/3  text-gray-800 font-semibold text-center md:text-left">
               For Developers Who Want More Than Just Practice
             </h3>
-            <div>
-              <ul className="flex flex-col gap-4">
-                <li className="flex gap-3 items-center text-2xl ">
+            <div className="w-full md:w-fit mt-8">
+              <ul className="flex flex-col md:gap-6 gap-y-3">
+                <li className="flex lg:gap-10 gap-5 items-center text-xl ">
                   {" "}
                   <GiBeveledStar className="text-[#4B0082] text-3xl font-bold" />
                   <span>Real team experience</span>
                 </li>
-                <li className="flex gap-3 items-center text-2xl ">
+                <li className="flex lg:gap-10 gap-5 items-center text-xl ">
                   {" "}
                   <GiBeveledStar className="text-[#4B0082] text-3xl font-bold" />{" "}
                   <span>Resume worthy contributions </span>
                 </li>
-                <li className="flex gap-3 items-center text-2xl">
+                <li className="flex lg:gap-10 gap-5 items-center text-xl">
                   <GiBeveledStar className="text-[#4B0082] text-3xl font-bold" />
                   <span>Accountabily and learning</span>
                 </li>
-                <li className="flex gap-3 items-center text-2xl ">
+                <li className="flex lg:gap-10 gap-5 items-center text-xl ">
                   <GiBeveledStar className="text-[#4B0082] text-3xl font-bold" />
                   <span>Community Support</span>
                 </li>
@@ -224,8 +224,8 @@ function LandingPage() {
             TESTIMONIALS
           </h3>
 
-          <div className="flex gap-6 mt-10">
-            <div className="flex  flex-col w-2/6 rounded-md shadow-xl p-4">
+          <div className="flex md:flex-row flex-col gap-6 mt-10">
+            <div className="flex  flex-col md:w-2/6 rounded-md shadow-xl p-4">
               <div className="flex gap-3">
                 <div className="bg-[#4B0082] w-[50px] h-[50px] rounded-sm flex items-center justify-center ">
                   <p className="text-white text-2xl font-bold text-center">
@@ -245,7 +245,7 @@ function LandingPage() {
               </div>
             </div>
 
-            <div className="flex  flex-col w-2/6 rounded-md shadow-xl p-4">
+            <div className="flex  flex-col md:w-2/6 rounded-md shadow-xl p-4">
               <div className="flex gap-3">
                 <div className="bg-[#4B0082] w-[50px] h-[50px] rounded-sm flex items-center justify-center ">
                   <p className="text-white text-2xl font-bold text-center">
@@ -265,7 +265,7 @@ function LandingPage() {
               </div>
             </div>
 
-            <div className="flex  flex-col w-2/6 rounded-md shadow-xl p-4">
+            <div className="flex  flex-col md:w-2/6 rounded-md shadow-xl p-4">
               <div className="flex gap-3">
                 <div className="bg-[#4B0082] w-[50px] h-[50px] rounded-sm flex items-center justify-center ">
                   <p className="text-white text-2xl font-bold text-center">
@@ -297,16 +297,7 @@ function LandingPage() {
             Join now
           </button>
         </section>
-        <section className="bg-[#4B0082] mt-10 h-[10rem] w-full text-xs text-white flex flex-col justify-center  font  -light gap-2">
-          <p className="text-center">DevCollab | Community-Driven Dev Growth</p>
-          <ul className="flex gap-2 text-white font-light justify-center">
-            <li>Github</li>
-            <li>|       Discord</li>
-            <li>|       Privacy</li>
-            <li>|       Terms</li>
-          </ul>
-          <p className="text-center">@ 2025 DevCollab. Built by devs, for devs.</p>
-        </section>
+        
       </div>
     </>
   );
