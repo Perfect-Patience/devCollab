@@ -1,5 +1,5 @@
 import React from 'react'
-import Profile from './Profile';
+import ProfileAvatar from './ProfileAvatar';
 
 
 const imgPath = 'src/assets/stack-icons';
@@ -24,7 +24,7 @@ function ProjectTile ({project}) {
             <div className='px-4 py-1 w-fit  rounded-sm' style={{backgroundColor: `${colors[project.difficulty]}`}}>
                 {project.difficulty}</div>
             <div className='flex items-center gap-3'>
-            <Profile image={"https://plus.unsplash.com/premium_photo-1661689108279-e046eef0185d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDZ8fHxlbnwwfHx8fHw%3D"}/> 
+            <ProfileAvatar image={"https://plus.unsplash.com/premium_photo-1661689108279-e046eef0185d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDZ8fHxlbnwwfHx8fHw%3D"}/> 
             <p className="truncate">{project.author}</p>
             </div>
             </div>
