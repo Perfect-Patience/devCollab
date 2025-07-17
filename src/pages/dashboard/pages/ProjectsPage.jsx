@@ -2,7 +2,7 @@ import DashboardHeader from "@/components/DashboardHeader";
 import ProjectSumary from "@/components/ProjectSumary";
 import { Button } from "@/components/ui/button";
 import React from "react";
-import { Link, Outlet, useNavigate } from "react-router";
+import { NavLink, Link, Outlet, useNavigate } from "react-router";
 
 const ProjectsPage = () => {
   const navigate = useNavigate();
@@ -23,13 +23,13 @@ const ProjectsPage = () => {
           >
             Add Project
           </Link>
-          <Button
+          <NavLink to="/explore"
             className={
-              "cursor-pointer text-white bg-[#7D0FF2] hover:text-black hover:bg-white border-[#7D0FF2] border-3"
+              "cursor-pointer px-3 rounded-md flex items-center text-white bg-[#7D0FF2] hover:text-black hover:bg-white border-[#7D0FF2] border-3"
             }
           >
             Join Project
-          </Button>
+          </NavLink>
         </div>
       </div>
       <div className="space-y-5">
