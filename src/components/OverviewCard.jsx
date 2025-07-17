@@ -11,7 +11,7 @@ import {
 const OverviewCard = ({title, number, icon, difference}) => {
   return (
     
-      <Card className={"border-[#4B0082] flex flex-wrap"}>
+      <Card className={"border-[#4B0082] flex flex-wrap h-[185px] gap-3"}>
         <CardHeader>
           <CardTitle className={"text-lg"}>{title}</CardTitle>
           {/* <CardDescription>Card Description</CardDescription>

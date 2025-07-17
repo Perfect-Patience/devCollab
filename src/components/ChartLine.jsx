@@ -34,23 +34,22 @@ const chartConfig = {
 const ChartLine = ({ data }) => {
   return (
     <div className="h-full pt-6">
-      <Card className="h-full py-4 sm:py-0 gap-2">
+      <Card className="h-[300px] py-4 sm:py-0 gap-2">
         <CardHeader>
           <CardDescription>
             Showing the number of collaborations per month
           </CardDescription>
         </CardHeader>
-        <CardContent className="px-2 sm:p-6">
-          <div className="h-[210px] w-full">
-            <ResponsiveContainer width="100%" height="100%">
-              <ChartContainer config={chartConfig}>
+        <CardContent className="px-2 sm:p-6 h-[]">
+          
+              <ChartContainer className={"h-[600px] w-full"} config={chartConfig}>
                 <LineChart
                   accessibilityLayer
                   data={data}
                   margin={{
                     left: 12,
                     right: 12,
-                    top: 2, // ✅ Add this
+                    // top: 2, // ✅ Add this
                     bottom: 390,
                   }}
                 >
@@ -76,8 +75,7 @@ const ChartLine = ({ data }) => {
                   />
                 </LineChart>
               </ChartContainer>
-            </ResponsiveContainer>
-          </div>
+           
         </CardContent>
         {/* <CardFooter className="flex-col items-start text-sm py-3">
         <div className="flex gap-2 leading-none font-medium">
