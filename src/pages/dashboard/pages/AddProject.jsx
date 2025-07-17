@@ -16,14 +16,14 @@ import { Button } from "@/components/ui/button";
 
 const AddProject = () => {
   return (
-    <div>
+    <div className="space-y-6">
       <DashboardHeader
         title={"Overview"}
         text={"Explore a summary of your activities here"}
       />
       <div className="px-60 space-y-5">
         <h3>Add a Project</h3>
-        <form className="space-y-5 font-normal">
+        <form className="space-y-2.5 font-normal">
           <Label className="font-normal" htmlFor="project">
             Project title:
           </Label>

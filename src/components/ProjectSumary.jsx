@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 
 const ProjectSumary = ({ title, description, numOfCollab, numOfRequests, ownership, status }) => {
   return (
-    <div className="bg-[#E9EBFA] flex w-full justify-between items-center px-10 py-3 rounded-sm">
+    <div className="bg-[#E9EBFA] flex w-full justify-between items-center px-10 py-2 rounded-sm">
       <div className="w-[20%] space-y-2">
         <h4 className="line-clamp-1 font-bold text-xl">{title}</h4>
         <p className="line-clamp-1">{description}</p>
