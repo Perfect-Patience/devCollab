@@ -7,7 +7,7 @@ import { HiMagnifyingGlass } from "react-icons/hi2";
 import { NavLink } from 'react-router';
 import { useState } from 'react';
 
-function BlueNavBar() {
+function BlueNavBar({searchedText, setSearchedText}) {
     const [showInput, setShowInput] = useState(false)
     function search(){
         if(!showInput){
@@ -22,22 +22,22 @@ function BlueNavBar() {
         
     }
   return (
-    <div className='w-full bg-[#E9EBFA] h-[5rem] flex justify-between items-center md:px-10'>
-        <NavLink to="/">
+    <div className='w-full bg-[#E9EBFA] h-[5rem] flex justify-between items-center px-4 md:px-10'>
+        <NavLink to="/" className={`w-30`}>
             <img src={logo} alt="logo" className={`${showInput? 'hidden': 'block'}  md:block`} />
         </NavLink>
-        <div className='flex md:gap-x-20 gap-2'>
+        <div className='flex md:gap-x-20 gap-2 items-center'>
             <div className='md:w-[20rem] h-full bg-white rounded-full flex py-2 px-4'>
                 <input type="search" id='searchbar'  className={`md:w-full md:h-full transition-all duration-300 ${ showInput? 'block': 'hidden'
-                } md:block `} placeholder='What are you looking for?' />
-                <button className=' text-2xl' onClick={search}><HiMagnifyingGlass /></button>
+                } md:block `} placeholder='What are you looking for?'  value={searchedText} onChange={(e) => setSearchedText( e.target.value)} />
+                <button className='  text-xl md:text-2xl' onClick={search}><HiMagnifyingGlass /></button>
             </div>
             <div className='flex items-center gap-3'>
                 <NavLink to="">
-                    <img src={bell} alt="notifications" className='h-[30px]' />
+                    <img src={bell} alt="notifications" className='h-[20px] md:h-[30px]' />
                 </NavLink>
                 <NavLink to="">
-                    <img src={message} alt="chat" className='h-[30px]' />
+                    <img src={message} alt="chat" className='h-[20px] md:h-[30px]' />
                 </NavLink>
                 <NavLink to="">
                     <div className=''>

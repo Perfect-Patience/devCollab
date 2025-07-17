@@ -1,0 +1,17 @@
+.isActive{
+    color:#4B0082;
+}
+
+.isActive::after {
+content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 4px;
+  width: 8px;
+  height: 8px;
+  background-color: #4B0082;
+  border-radius: 50%;
+  box-shadow: 0 0 6px #4B0082;
+}

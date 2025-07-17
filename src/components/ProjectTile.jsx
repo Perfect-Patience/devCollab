@@ -2,7 +2,7 @@ import React from 'react'
 import Profile from './Profile';
 
 
-const imgPath = 'src/assets/stack';
+const imgPath = 'src/assets/stack-icons';
 
 function ProjectTile ({project}) {
     const colors = {
@@ -11,13 +11,13 @@ function ProjectTile ({project}) {
         "Advanced": "#FD7C37"
     }
   return (
-    <div className=' p-5 rounded-xl  min-w-[300px]' style={{backgroundColor: 'rgba(217, 217, 217, 0.3)'}}>
+    <div className=' p-5 rounded-xl  min-w-[300px] cursor-pointer hover:translate-y-2 duration-300' style={{backgroundColor: 'rgba(217, 217, 217, 0.17)'}}>
         <p className='font-semibold text-lg mb-5'>{project.title}</p>
         <p className=' text-gray-700 line-clamp-4 mb-5'>{project.description}</p>
         <div className='flex mb-5 gap-2.5'>
             {/* creates a path to the images in the assets folder, the images are named according to stack names in the object */}
             {project.stack.map((s,index) => (
-                <img key={index} className='w-[25px] h-[25px] contain' src={imgPath + `/` + s + `.png`} alt={s} />
+                <img key={index} className='w-[25px] h-[25px] contain' src={imgPath + `/` + s + `.svg`} alt={s} />
             ))}
         </div>
         <div className='flex items-center justify-between'>
