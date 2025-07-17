@@ -3,6 +3,7 @@ import PurpleNavBar from "../components/PurpleNavBar";
 import dev from "../assets/dev2.svg";
 import { HiOutlineLightBulb } from "react-icons/hi";
 import { GiBeveledStar } from "react-icons/gi";
+import { NavLink } from "react-router";
 
 function LandingPage() {
   return (
@@ -24,14 +25,14 @@ function LandingPage() {
               <p className="text-white md:w-3/5  w-[100%] mt-15 text-xl md:text-left text-center">
                 Dev Collab connects developers with real-world collaboration
                 opportunities. Start or join a project, improve your skills, and
-                grow your portfolio—together.
+                grow your portfolio together.
               </p>
 
               <div className="text-white flex md:flex-row flex-col gap-7 mt-10">
-                <button className="bg-pink-400 shrink-0 border-2 border-[pink] py-2 px-5 rounded-4xl font-semibold text-[#4B0082]">
+                <NavLink to="explore" className="bg-pink-400 shrink-0 border-2 border-[pink] py-2 px-5 rounded-4xl font-semibold text-[#4B0082]">
                   Find A Project
-                </button>
-                <button className="border-2 border-[pink]  shrink-0 py-2 px-5 rounded-4xl font-semibold">
+                </NavLink>
+                <button className="border-2 border-[pink] shrink-0 py-2 px-5 rounded-4xl font-semibold">
                   Start Collaborating
                 </button>
               </div>
