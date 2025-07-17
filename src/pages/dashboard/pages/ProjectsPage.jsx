@@ -2,8 +2,10 @@ import DashboardHeader from "@/components/DashboardHeader";
 import ProjectSumary from "@/components/ProjectSumary";
 import { Button } from "@/components/ui/button";
 import React from "react";
+import { Link, Outlet, useNavigate } from "react-router";
 
 const ProjectsPage = () => {
+  const navigate = useNavigate();
   return (
     <div className="space-y-14">
       <DashboardHeader
@@ -13,13 +15,14 @@ const ProjectsPage = () => {
       <div className="flex justify-between">
         <h3 className="font-bold">All Projects</h3>
         <div className="flex gap-3">
-          <Button
+          <Link
+            to="/dashboard/addProject"
             className={
-              "cursor-pointer border-3 border-[#7D0FF2] bg-white text-black hover:text-white hover:bg-[#7D0FF2]"
+              "cursor-pointer border-3 border-[#7D0FF2] bg-white text-black hover:text-white hover:bg-[#7D0FF2] px-4 py-1 rounded-md font-semibold"
             }
           >
             Add Project
-          </Button>
+          </Link>
           <Button
             className={
               "cursor-pointer text-white bg-[#7D0FF2] hover:text-black hover:bg-white border-[#7D0FF2] border-3"
@@ -79,6 +82,7 @@ const ProjectsPage = () => {
           status={"Done"}
         />
       </div>
+      <Outlet/>
     </div>
   );
 };

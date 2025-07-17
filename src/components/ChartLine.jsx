@@ -26,7 +26,8 @@ const chartConfig = {
 
 const ChartLine = ({ data }) => {
   return (
-    <Card className={"h-full"}>
+    <div className="h-full">
+      <Card className="h-full py-4 sm:py-0">
       {/* <CardHeader>
         <CardTitle>Line Chart - Linear</CardTitle>
         <CardDescription>January - June 2024</CardDescription>
@@ -41,6 +42,8 @@ const ChartLine = ({ data }) => {
               margin={{
                 left: 12,
                 right: 12,
+                top: 2, // ✅ Add this
+                bottom: 390,
               }}
             >
               <CartesianGrid vertical={false} />
@@ -68,15 +71,16 @@ const ChartLine = ({ data }) => {
           </ResponsiveContainer>
         </div>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-2 text-sm">
+      <CardFooter className="flex-col items-start text-sm py-3">
         {/* <div className="flex gap-2 leading-none font-medium">
           Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
         </div> */}
-        <div className="text-muted-foreground leading-none">
+        <div className="text-muted-foreground">
           Showing total number of collaborations per month
         </div>
       </CardFooter>
     </Card>
+    </div>
   );
 };
 

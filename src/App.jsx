@@ -7,6 +7,7 @@ import OverviewPage from "./pages/dashboard/pages/OverviewPage";
 import ProjectsPage from "./pages/dashboard/pages/ProjectsPage";
 import AccountPage from "./pages/dashboard/pages/AccountPage";
 import SettingsPage from "./pages/dashboard/pages/SettingsPage";
+import AddProject from "./pages/dashboard/pages/AddProject";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: "projects",
         Component: ProjectsPage,
+      },
+      {
+        path: "addProject",
+        Component: AddProject
       },
       {
         path: "account",

@@ -36,9 +36,7 @@ const OverviewPage = () => {
           />
         </div>
       </section>
-      <div className="min-h-[400px] m-auto">
-        <ChartLine data={K.chartData} />
-      </div>
+      <ChartLine data={K.chartData} />
     </div>
   );
 };
