@@ -8,7 +8,7 @@ const Sidebar = () => {
   const [activeItem, setActiveItem] = useState("Overview");
 
   return (
-    <div className="h-screen w-10 md:w-72 p-8 space-y-18 flex flex-col border-r-1 border-r-[#E4E4E4] bg-[#4B0084]">
+    <div className="h-screen w-10 md:w-72 p-8 justify-between flex flex-col border-r-1 border-r-[#E4E4E4] bg-[#4B0084]">
       <div className="flex items-center gap-2 text-white font-bold text-2xl">
         <img src={Logo} alt="website logo" />
         <span>DevCollab</span>

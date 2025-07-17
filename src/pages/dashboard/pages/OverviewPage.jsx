@@ -7,7 +7,7 @@ import React from "react";
 
 const OverviewPage = () => {
   return (
-    <div className="space-y-14">
+    <div className="min-h-screen space-y-5">
       <DashboardHeader
         title={"Overview"}
         text={"Explore a summary of your activities here"}
@@ -36,7 +36,9 @@ const OverviewPage = () => {
           />
         </div>
       </section>
-      <ChartLine data={K.chartData} />
+      
+        <ChartLine data={K.chartData} />
+      
     </div>
   );
 };

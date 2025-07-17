@@ -32,7 +32,7 @@ const ProjectsPage = () => {
           </Button>
         </div>
       </div>
-      <div className="space-y-7">
+      <div className="space-y-5">
         <ProjectSumary
           title={
             "Mp3 converter App text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy"
