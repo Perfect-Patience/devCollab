@@ -15,7 +15,7 @@ const OverviewPage = () => {
 
       <section className="space-y-5">
         <h2 className="font-bold">Activity Summary</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-14">
+        <div className="flex flex-wrap gap-14 w-full">
           <OverviewCard
             title={"Total"}
             number={"7"}

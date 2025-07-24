@@ -37,9 +37,9 @@ const ProjectSumary = ({ title, description, numOfCollab, numOfRequests, ownersh
         <span className="font-bold text-2xl">{numOfRequests}</span>
         <span>Requests Pending</span>
       </div>
-      <div className="space-x-5">
-        <Button className={"w-30 cursor-pointer text-black bg-[#E0FFC9] hover:bg-white"}>{ownership}</Button>
-        <Button className={"w-30 cursor-pointer text-black bg-[#06C91D] hover:bg-white"}>{status}</Button>
+      <div className="space-x-5 space-y-2 ">
+        <Button className={"w-20 md:w-30 cursor-pointer text-black bg-[#E0FFC9] hover:bg-white"}>{ownership}</Button>
+        <Button className={"w-20 md:w-30 cursor-pointer text-black bg-[#06C91D] hover:bg-white"}>{status}</Button>
       </div>
       
     </div>
