@@ -14,6 +14,7 @@ import { Textarea } from "@/components/ui/textarea";
 import React from "react";
 import { NavLink, Outlet, useNavigate } from "react-router";
 
+
 const ProjectsPage = () => {
   
   return (
@@ -30,6 +31,7 @@ const ProjectsPage = () => {
             <DialogTrigger asChild>
               <Button variant="outline" className={
               "cursor-pointer border-3 border-[#7D0FF2] bg-white text-black hover:text-white hover:bg-[#7D0FF2] px-4 py-1 rounded-md font-semibold"
+
             }>Add Project</Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-md">
@@ -108,12 +110,20 @@ const ProjectsPage = () => {
           </Dialog>
           <NavLink
             to="/explore"
-            className={
-              "cursor-pointer px-3 rounded-md flex items-center text-white bg-[#7D0FF2] hover:text-black hover:bg-white border-[#7D0FF2] border-3"
+
             }
           >
+            Add Project
+          </Link>
+          <Button
+
+            className={
+              "cursor-pointer text-white bg-[#7D0FF2] hover:text-black hover:bg-white border-[#7D0FF2] border-3"
+            }
+            onClick={navigate('/explore')}
+          >
             Join Project
-          </NavLink>
+          </Button>
         </div>
       </div>
       <div className="space-y-5">
