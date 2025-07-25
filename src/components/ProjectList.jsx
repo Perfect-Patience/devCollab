@@ -175,9 +175,11 @@ const projects = [
 ];
 
 // choose only projects fitting tag
+// -1 is alocated for proects with tag popular which will be the default filter when page is opened.
+// the state stages to stack arrays index when a filter is clicked.
 const [isActive, setIsActive] = useState(-1);  
 const filteredProjects = projects.filter((project) => project.tags.includes(filter));
-console.log(filteredProjects)
+
 
 //filter list based on search value
 const filtered = filteredProjects.filter((project) => project.title.toLowerCase().includes(searchedText.toLowerCase()))
