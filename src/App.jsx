@@ -13,6 +13,8 @@ import LandingPageLayout from "./layout/LandingPageLayout";
 import HowItWorksPage from "./pages/HowItWorksPage";
 import ProjectListingPage from "./pages/ProjectListingPage";
 import ProfilePage from "./pages/ProfilePage";
+import ProjectDetailsPage from "./pages/ProjectDetailsPage";
+import ProjectDetailsAdminView from "./pages/ProjectDetailsAdminView";
 
 const router = createBrowserRouter([
   {
@@ -70,6 +72,16 @@ const router = createBrowserRouter([
   ,{
     path: "profile",
     Component: ProfilePage
+  }
+  ,
+  {
+    path: "/:id",
+    Component: ProjectDetailsPage
+  }
+  ,
+  {
+    path: "/admin/:id",
+    Component: ProjectDetailsAdminView
   }
   
 ]);

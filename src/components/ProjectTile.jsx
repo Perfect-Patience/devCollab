@@ -1,17 +1,22 @@
 import React from 'react'
 import ProfileAvatar from './ProfileAvatar';
-
+import { useNavigate } from 'react-router';
 
 const imgPath = 'src/assets/stack-icons';
 
 function ProjectTile ({project}) {
+    const nav = useNavigate();
+    const navigate = (id) => {
+        nav(`/${id}`)
+    }
     const colors = {
         "Beginner": "#06C91D",
         "Intermediate": "#F8C9FF",
         "Advanced": "#FD7C37"
     }
+    
   return (
-    <div className=' p-5 rounded-xl  min-w-[300px] cursor-pointer hover:translate-y-2 duration-300' style={{backgroundColor: 'rgba(217, 217, 217, 0.17)'}}>
+    <div className=' p-5 rounded-xl  min-w-[300px] cursor-pointer hover:translate-y-2 duration-300' onClick={() => navigate(project.id)} style={{backgroundColor: 'rgba(217, 217, 217, 0.17)'}}>
         <p className='font-semibold text-lg mb-5'>{project.title}</p>
         <p className=' text-gray-700 line-clamp-4 mb-5'>{project.description}</p>
         <div className='flex mb-5 gap-2.5'>
