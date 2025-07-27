@@ -12,6 +12,7 @@ import About from "./pages/AboutPage";
 import LandingPageLayout from "./layout/LandingPageLayout";
 import HowItWorksPage from "./pages/HowItWorksPage";
 import ProjectListingPage from "./pages/ProjectListingPage";
+import ProfilePage from "./pages/ProfilePage";
 
 const router = createBrowserRouter([
   {
@@ -65,6 +66,10 @@ const router = createBrowserRouter([
   {
     path: "explore",
     Component: ProjectListingPage
+  }
+  ,{
+    path: "profile",
+    Component: ProfilePage
   }
   
 ]);
