@@ -1,7 +1,6 @@
 import React from "react";
-import { Bell } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Comment } from "@/assets";
+import { Comment, Bell, Ellipse } from "@/assets";
 
 const DashboardHeader = ({ title, text }) => {
   return (
@@ -12,9 +11,9 @@ const DashboardHeader = ({ title, text }) => {
       </div>
       <div className="flex items-center justify-center gap-4">
         <img src={Comment} alt="comments icon" className="h-5" />
-        <Bell size={25} className="fill-black"/>
+        <img src={Bell} alt="comments icon" className="h-5" />
         <Avatar className="h-7 w-7">
-          <AvatarImage src="https://github.com/shadcn.png" />
+          <AvatarImage src={Ellipse} />
           <AvatarFallback>CN</AvatarFallback>
         </Avatar>
       </div>
