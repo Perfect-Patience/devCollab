@@ -16,7 +16,8 @@ import { NavLink, Outlet, useNavigate } from "react-router";
 
 
 const ProjectsPage = () => {
-  
+  const navigate = useNavigate();
+
   return (
     <div className="space-y-14">
       <DashboardHeader
@@ -108,22 +109,22 @@ const ProjectsPage = () => {
               </div>
             </DialogContent>
           </Dialog>
-          <NavLink
+          {/* <NavLink
             to="/explore"
 
-            }
+            
           >
             Add Project
-          </Link>
-          <Button
+          </NavLink> */}
+          <NavLink
 
             className={
-              "cursor-pointer text-white bg-[#7D0FF2] hover:text-black hover:bg-white border-[#7D0FF2] border-3"
+              "cursor-pointer text-white bg-[#7D0FF2] hover:text-black hover:bg-white border-[#7D0FF2] border-3 rounded-sm px-4 font-semibold"
             }
-            onClick={navigate('/explore')}
+            to = '/explore'
           >
             Join Project
-          </Button>
+          </NavLink>
         </div>
       </div>
       <div className="space-y-5">
