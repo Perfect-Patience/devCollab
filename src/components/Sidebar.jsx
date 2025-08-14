@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import K from "../constants";
 import { NavLink } from "react-router";
 import { Logo } from "@/assets";
-import logo from "../assets/logo.svg";
+import logo from '../assets/logoipsum-custom-logo-colored.svg';
 import Profile from "./Profile";
 import { AlignJustify } from "lucide-react";
 
@@ -39,7 +39,7 @@ const Sidebar = () => {
         <Profile />
       </div>
       {isOpen && (
-        <div className="fixed top-14 md:hidden p-4 justify-start w-[100%] flex  bg-[#4B0084]">
+        <div className="fixed top-14 md:hidden p-4 justify-start w-[100%] z-1 flex  bg-[#4B0084]">
           <div className="flex flex-col gap-6 text-white font-semibold">
             {K.DASHBOARDLINKS.map((item, index) => (
               <NavLink to={item.path} key={index} className="">
@@ -61,9 +61,18 @@ const Sidebar = () => {
           </div>
         </div>
       )}
-      <button onClick={() => setIsOpen(!isOpen)} className="md:hidden block fixed bg-gray-100 p-2.5 text-gray-600 rounded-md">
-        <AlignJustify />
-      </button>
+      {/* Mobile top bar */}
+      <div className="md:hidden fixed top-0 left-0 w-full h-15 bg-[#E9EBFA] flex items-center justify-between px-4">
+        <NavLink to="/" className={`w-30`}>
+          <img src={logo} alt="logo" className="text-[#7D0FF2]" />
+        </NavLink>
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="bg-gray-100 p-2.5 text-gray-600 rounded-md"
+        >
+          <AlignJustify />
+        </button>
+      </div>
     </div>
   );
 };

@@ -6,7 +6,7 @@ const DashBoardLayout = () => {
   return (
     <div className='md:flex h-screen md:overflow-hidden'>
         <Sidebar />
-        <div className='px-10 py-5'>
+        <div className='md:px-10 px-4 py-5'>
             <Outlet />
         </div>
     </div>
