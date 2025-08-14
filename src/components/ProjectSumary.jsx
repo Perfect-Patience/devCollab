@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Avatar,
   AvatarFallback,
   AvatarImage,
 } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button"
+import { Checkbox, Clock } from "@/assets";
 
-const ProjectSumary = ({ title, description, numOfCollab, numOfRequests, ownership, status }) => {
+const ProjectSumary = ({ title, description, numOfCollab, numOfRequests, status }) => {
+
+  // const [status, setStatus] = useState("In-progress");
+
   return (
-    <div className="bg-[#E9EBFA] flex w-full justify-between items-center px-10 py-2 rounded-sm">
+    <div className="bg-[#F9F9F9] flex w-full justify-between items-center md:px-10 px-1 py-2 rounded-sm shadow-xl/20">
       <div className="w-[20%] space-y-2">
         <h4 className="line-clamp-1 font-bold text-xl">{title}</h4>
         <p className="line-clamp-1">{description}</p>
@@ -37,9 +41,12 @@ const ProjectSumary = ({ title, description, numOfCollab, numOfRequests, ownersh
         <span className="font-bold text-2xl">{numOfRequests}</span>
         <span>Requests Pending</span>
       </div>
-      <div className="space-x-5 space-y-2 ">
-        <Button className={"w-20 md:w-30 cursor-pointer text-black bg-[#E0FFC9] hover:bg-white"}>{ownership}</Button>
-        <Button className={"w-20 md:w-30 cursor-pointer text-black bg-[#06C91D] hover:bg-white"}>{status}</Button>
+      <div>
+        
+        {status.toLowerCase() === "in progress"
+        ? <img src={Clock} className="h-8" />
+        : <img src={Checkbox} className="h-8 text-[#7D0FF2]" />
+        }
       </div>
       
     </div>

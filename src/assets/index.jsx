@@ -6,5 +6,7 @@ import Ellipse from '../assets/images/Ellipse2.png';
 import Trophy from '../assets/images/trophy.png';
 import Star from '../assets/images/star.png';
 import People from '../assets/images/people.png';
+import Checkbox from '../assets/images/completed.png';
+import Clock from '../assets/images/check.png';
 
-export {LoginImg, Logo, Comment, Trophy, Star, People, Bell, Ellipse};
+export {LoginImg, Logo, Comment, Trophy, Star, People, Bell, Ellipse, Checkbox, Clock};

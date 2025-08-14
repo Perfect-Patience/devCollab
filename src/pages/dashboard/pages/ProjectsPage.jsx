@@ -137,7 +137,7 @@ const ProjectsPage = () => {
           }
           numOfCollab={"10"}
           numOfRequests={"5"}
-          ownership={"Owner"}
+          
           status={"In Progress"}
         />
         <ProjectSumary
@@ -149,7 +149,7 @@ const ProjectsPage = () => {
           }
           numOfCollab={"10"}
           numOfRequests={"5"}
-          ownership={"Owner"}
+          
           status={"In Progress"}
         />
         <ProjectSumary
@@ -161,7 +161,7 @@ const ProjectsPage = () => {
           }
           numOfCollab={"10"}
           numOfRequests={"0"}
-          ownership={"Collaborator"}
+          
           status={"In Progress"}
         />
         <ProjectSumary
@@ -173,7 +173,7 @@ const ProjectsPage = () => {
           }
           numOfCollab={"10"}
           numOfRequests={"5"}
-          ownership={"Collaborator"}
+          
           status={"Done"}
         />
       </div>
