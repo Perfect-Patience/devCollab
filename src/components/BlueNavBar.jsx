@@ -28,7 +28,7 @@ function BlueNavBar({searchedText, setSearchedText}) {
         </NavLink>
         <div className='flex md:gap-x-20 gap-2 items-center'>
             <div className='md:w-[20rem] h-full bg-white rounded-full flex py-2 px-4'>
-                <input type="search" id='searchbar'  className={`md:w-full md:h-full transition-all duration-300 ${ showInput? 'block': 'hidden'
+                <input type="search" id='searchbar'  className={`md:w-full md:h-full transition-all duration-300 outline-0 ${ showInput? 'block': 'hidden'
                 } md:block `} placeholder='What are you looking for?'  value={searchedText} onChange={(e) => setSearchedText( e.target.value)} />
                 <button className='  text-xl md:text-2xl' onClick={search}><HiMagnifyingGlass /></button>
             </div>
