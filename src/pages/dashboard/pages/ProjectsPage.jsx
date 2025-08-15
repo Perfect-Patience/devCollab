@@ -2,22 +2,24 @@ import DashboardHeader from "@/components/DashboardHeader";
 import ProjectSumary from "@/components/ProjectSumary";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
-import {
-  Dialog,
-  DialogContent,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import React from "react";
 import { NavLink, Outlet, useNavigate } from "react-router";
 
-
 const ProjectsPage = () => {
   const navigate = useNavigate();
-
   return (
     <div className="space-y-14">
       <DashboardHeader
@@ -27,13 +29,16 @@ const ProjectsPage = () => {
       <div className="flex justify-between">
         <h3 className="font-bold">All Projects</h3>
         <div className="flex gap-3">
-          
           <Dialog>
             <DialogTrigger asChild>
-              <Button variant="outline" className={
-              "cursor-pointer border-3 border-[#7D0FF2] bg-white text-black hover:text-white hover:bg-[#7D0FF2] px-4 py-1 rounded-md font-semibold"
-
-            }>Add Project</Button>
+              <Button
+                variant="outline"
+                className={
+                  "cursor-pointer border-3 border-[#7D0FF2] bg-white text-black hover:text-white hover:bg-[#7D0FF2] px-4 py-1 rounded-md font-semibold"
+                }
+              >
+                Add Project
+              </Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-md">
               <div className="space-y-5">
@@ -109,75 +114,68 @@ const ProjectsPage = () => {
               </div>
             </DialogContent>
           </Dialog>
-          {/* <NavLink
-            to="/explore"
-
-            
-          >
-            Add Project
-          </NavLink> */}
-          <NavLink
-
-            className={
-              "cursor-pointer text-white bg-[#7D0FF2] hover:text-black hover:bg-white border-[#7D0FF2] border-3 rounded-sm px-4 font-semibold"
-            }
-            to = '/explore'
+          <NavLink to="/explore">Add Project</NavLink>
+          <Button
+            className="cursor-pointer text-white bg-[#7D0FF2] hover:text-black hover:bg-white border-[#7D0FF2] border-3"
+            onClick={() => navigate("/explore")}
           >
             Join Project
-          </NavLink>
+          </Button>
         </div>
+        {/* </div> */}
+        <div className="space-y-5">
+          <ProjectSumary
+            title={
+              "Mp3 converter App text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy"
+            }
+            description={
+              "Project description in detail of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem"
+            }
+            numOfCollab={"10"}
+            numOfRequests={"5"}
+            ownership={"Owner"}
+            status={"In Progress"}
+          />
+          <ProjectSumary
+            title={
+              "Mp3 converter App text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy"
+            }
+            description={
+              "Project description in detail of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem"
+            }
+            numOfCollab={"10"}
+            numOfRequests={"5"}
+            ownership={"Owner"}
+            status={"In Progress"}
+          />
+          <ProjectSumary
+            title={
+              "Mp3 converter App text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy"
+            }
+            description={
+              "Project description in detail of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem"
+            }
+            numOfCollab={"10"}
+            numOfRequests={"0"}
+            ownership={"Collaborator"}
+            status={"In Progress"}
+          />
+          <ProjectSumary
+            title={
+              "Mp3 converter App text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy"
+            }
+            description={
+              "Project description in detail of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem"
+            }
+            numOfCollab={"10"}
+            numOfRequests={"5"}
+            ownership={"Collaborator"}
+            status={"Done"}
+          />
+        </div>
+        <Outlet />
       </div>
-      <div className="space-y-5">
-        <ProjectSumary
-          title={
-            "Mp3 converter App text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy"
-          }
-          description={
-            "Project description in detail of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem"
-          }
-          numOfCollab={"10"}
-          numOfRequests={"5"}
-          
-          status={"In Progress"}
-        />
-        <ProjectSumary
-          title={
-            "Mp3 converter App text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy"
-          }
-          description={
-            "Project description in detail of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem"
-          }
-          numOfCollab={"10"}
-          numOfRequests={"5"}
-          
-          status={"In Progress"}
-        />
-        <ProjectSumary
-          title={
-            "Mp3 converter App text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy"
-          }
-          description={
-            "Project description in detail of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem"
-          }
-          numOfCollab={"10"}
-          numOfRequests={"0"}
-          
-          status={"In Progress"}
-        />
-        <ProjectSumary
-          title={
-            "Mp3 converter App text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy"
-          }
-          description={
-            "Project description in detail of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem"
-          }
-          numOfCollab={"10"}
-          numOfRequests={"5"}
-          
-          status={"Done"}
-        />
-      </div>
-      <Outlet />
+
     </div>
   );
 };

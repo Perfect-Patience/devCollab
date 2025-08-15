@@ -1,7 +1,9 @@
 import { NavLink } from "react-router";
 import logo from "../assets/logo.svg";
+import { useNavigate } from "react-router";
 
 function PurpleNavBar() {
+  const navigate = useNavigate();
   function ToggleMenu() {
     const menu = document.getElementById("mobile-menu");
     menu.classList.toggle("hidden");
@@ -24,7 +26,7 @@ function PurpleNavBar() {
           </ul>
         </div>
         <div className="btns font-bold hidden md:flex gap-6">
-          <button className="bg-white px-3 rounded-sm cursor-pointer">
+          <button onClick={() => navigate('/login')} className="bg-white px-3 rounded-sm cursor-pointer">
             Login
           </button>
           <button className="bg-[#4B0082] px-3 rounded-sm text-white cursor-pointer">

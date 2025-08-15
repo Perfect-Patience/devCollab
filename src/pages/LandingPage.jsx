@@ -3,9 +3,11 @@ import PurpleNavBar from "../components/PurpleNavBar";
 import dev from "../assets/dev2.svg";
 import { HiOutlineLightBulb } from "react-icons/hi";
 import { GiBeveledStar } from "react-icons/gi";
-import { NavLink } from "react-router";
+import { NavLink , useNavigate} from "react-router";
+
 
 function LandingPage() {
+  const navigate = useNavigate();
   return (
     <>
       <div className="w-full h-fit">
@@ -32,7 +34,7 @@ function LandingPage() {
                 <NavLink to="explore" className="bg-pink-400 shrink-0 border-2 border-[pink] py-2 px-5 rounded-4xl font-semibold text-[#4B0082]">
                   Find A Project
                 </NavLink>
-                <button className="border-2 border-[pink] shrink-0 py-2 px-5 rounded-4xl font-semibold">
+                <button onClick={() => navigate('/dashboard')} className="border-2 border-[pink] shrink-0 py-2 px-5 rounded-4xl font-semibold cursor-pointer">
                   Start Collaborating
                 </button>
               </div>
@@ -294,7 +296,7 @@ function LandingPage() {
           <p className="text-center font-normal text-md mt-2 mb-10">
             Start Building. Start Collaborating.
           </p>
-          <button className="border-2 border-[#4b0082] px-8 py-1 rounded-md block mx-auto text-xs font-semibold">
+          <button onClick={() => navigate('/login')} className="border-2 border-[#4b0082] px-8 py-1 rounded-md block cursor-pointer mx-auto text-xs font-semibold">
             Join now
           </button>
         </section>
