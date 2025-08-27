@@ -15,6 +15,8 @@ import ProjectListingPage from "./pages/ProjectListingPage";
 import ProfilePage from "./pages/ProfilePage";
 import ProjectDetailsPage from "./pages/ProjectDetailsPage";
 import ProjectDetailsAdminView from "./pages/ProjectDetailsAdminView";
+import MessagePage from "./pages/MessagePage";
+import NotificationPage from "./pages/NotificationPage";
 
 const router = createBrowserRouter([
   {
@@ -82,6 +84,14 @@ const router = createBrowserRouter([
   {
     path: "/admin/:id",
     Component: ProjectDetailsAdminView
+  },
+  {
+    path: "/chat",
+    Component: MessagePage
+  },
+  {
+    path: "/notifications",
+    Component: NotificationPage
   }
   
 ]);

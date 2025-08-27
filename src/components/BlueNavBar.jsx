@@ -33,10 +33,10 @@ function BlueNavBar({searchedText, setSearchedText}) {
                 <button className='  text-xl md:text-2xl' onClick={search}><HiMagnifyingGlass /></button>
             </div>
             <div className='flex items-center gap-3'>
-                <NavLink to="">
+                <NavLink to="/notifications">
                     <img src={bell} alt="notifications" className='h-[20px] md:h-[30px]' />
                 </NavLink>
-                <NavLink to="">
+                <NavLink to="/chat">
                     <img src={message} alt="chat" className='h-[20px] md:h-[30px]' />
                 </NavLink>
                 <NavLink to="/profile">
