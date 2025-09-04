@@ -29,7 +29,7 @@ function PurpleNavBar() {
           <button onClick={() => navigate('/login')} className="bg-white px-3 rounded-sm cursor-pointer">
             Login
           </button>
-          <button className="bg-[#4B0082] px-3 rounded-sm text-white cursor-pointer">
+          <button onClick={() => navigate('/signup')} className="bg-[#4B0082] px-3 rounded-sm text-white cursor-pointer">
             Sign Up
           </button>
         </div>

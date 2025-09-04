@@ -17,29 +17,34 @@ import ProjectDetailsPage from "./pages/ProjectDetailsPage";
 import ProjectDetailsAdminView from "./pages/ProjectDetailsAdminView";
 import MessagePage from "./pages/MessagePage";
 import NotificationPage from "./pages/NotificationPage";
+import SignupPage from "./pages/SignupPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     Component: LandingPageLayout,
-    children:[
+    children: [
       {
         index: true,
-        Component: LandingPage
+        Component: LandingPage,
       },
       {
         path: "about",
-        Component: About
+        Component: About,
       },
       {
         path: "HowItWorks",
-        Component: HowItWorksPage
-      }
-    ]
+        Component: HowItWorksPage,
+      },
+    ],
   },
   {
     path: "/login",
     Component: LoginPage,
+  },
+  {
+    path: "/signup",
+    Component: SignupPage,
   },
   {
     path: "/dashboard",
@@ -55,7 +60,7 @@ const router = createBrowserRouter([
       },
       {
         path: "addProject",
-        Component: AddProject
+        Component: AddProject,
       },
       {
         path: "account",
@@ -63,37 +68,34 @@ const router = createBrowserRouter([
       },
       {
         path: "settings",
-        Component: SettingsPage
-      }
+        Component: SettingsPage,
+      },
     ],
   },
   {
     path: "explore",
-    Component: ProjectListingPage
-  }
-  ,{
+    Component: ProjectListingPage,
+  },
+  {
     path: "profile",
-    Component: ProfilePage
-  }
-  ,
+    Component: ProfilePage,
+  },
   {
     path: "/:id",
-    Component: ProjectDetailsPage
-  }
-  ,
+    Component: ProjectDetailsPage,
+  },
   {
     path: "/admin/:id",
-    Component: ProjectDetailsAdminView
+    Component: ProjectDetailsAdminView,
   },
   {
     path: "/chat",
-    Component: MessagePage
+    Component: MessagePage,
   },
   {
     path: "/notifications",
-    Component: NotificationPage
-  }
-  
+    Component: NotificationPage,
+  },
 ]);
 function App() {
   return <RouterProvider router={router} />;
