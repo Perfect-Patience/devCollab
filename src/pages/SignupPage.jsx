@@ -31,7 +31,7 @@ const SignupPage = () => {
     try {
 
       if (!username || !email || !password) {
-        return "all fields are required";
+        return "all the fields are required";
       }
 
       const res = await api.post("/auth/signup", {
