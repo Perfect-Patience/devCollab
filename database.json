@@ -1,0 +1,699 @@
+[
+  {
+    "id": "1",
+    "title": "Task Tracker App",
+    "description": "Task Tracker App is a software project aimed at delivering core functionality in its domain. It includes features like user interaction, data management, and responsive design, providing developers with a solid base to improve their skills and collaborate.",
+    "stack": [
+      "TailwindCSS",
+      "MongoDB",
+      "Express"
+    ],
+    "difficulty": "Beginner",
+    "author": "Paul Arthur",
+    "active": true,
+    "repo": "https://github.com/Perfect-Patience/tasktrackerapp",
+    "collaborators": [
+      {
+        "id": "u005",
+        "name": "Ama Serwaa",
+        "profilePic": "/profiles/ama.jpg",
+        "role": "Project Manager"
+      },
+      {
+        "id": "u003",
+        "name": "Linda Ofori",
+        "profilePic": "/profiles/linda.jpg",
+        "role": "UI/UX Designer"
+      }
+    ],
+    "pendingCollaborators": [
+      {
+        "id": "u001",
+        "name": "Sarah Johnson",
+        "profilePic": "/profiles/sarah.jpg",
+        "role": "Frontend Developer"
+      }
+    ],
+    "roles": [
+      "Java Programmer",
+      "Data Analyst",
+      "UI/UX Designer"
+    ]
+  },
+  {
+    "id": "2",
+    "title": "Recipe Finder",
+    "description": "Recipe Finder is a software project aimed at delivering core functionality in its domain. It includes features like user interaction, data management, and responsive design, providing developers with a solid base to improve their skills and collaborate.",
+    "stack": [
+      "TailwindCSS",
+      "Electron",
+      "TypeScript"
+    ],
+    "difficulty": "Beginner",
+    "author": "Paul Arthur",
+    "active": true,
+    "repo": "https://github.com/TeamDev/recipefinder",
+    "collaborators": [
+      {
+        "id": "u003",
+        "name": "Linda Ofori",
+        "profilePic": "/profiles/linda.jpg",
+        "role": "UI/UX Designer"
+      },
+      {
+        "id": "u002",
+        "name": "Emmanuel Mensah",
+        "profilePic": "/profiles/emmanuel.jpg",
+        "role": "Backend Developer"
+      }
+    ],
+    "pendingCollaborators": [
+      {
+        "id": "u005",
+        "name": "Ama Serwaa",
+        "profilePic": "/profiles/ama.jpg",
+        "role": "Project Manager"
+      }
+    ],
+    "roles": [
+      "Data Analyst",
+      "Java Programmer",
+      "UI/UX Designer"
+    ]
+  },
+  {
+    "id": "3",
+    "title": "Expense Tracker",
+    "description": "Expense Tracker is a software project aimed at delivering core functionality in its domain. It includes features like user interaction, data management, and responsive design, providing developers with a solid base to improve their skills and collaborate.",
+    "stack": [
+      "Express",
+      "AngularJS",
+      "Firebase"
+    ],
+    "difficulty": "Beginner",
+    "author": "Eunice Asamoah",
+    "active": true,
+    "repo": "https://github.com/TeamDev/expensetracker",
+    "collaborators": [
+      {
+        "id": "u003",
+        "name": "Linda Ofori",
+        "profilePic": "/profiles/linda.jpg",
+        "role": "UI/UX Designer"
+      },
+      {
+        "id": "u002",
+        "name": "Emmanuel Mensah",
+        "profilePic": "/profiles/emmanuel.jpg",
+        "role": "Backend Developer"
+      }
+    ],
+    "pendingCollaborators": [
+      {
+        "id": "u001",
+        "name": "Sarah Johnson",
+        "profilePic": "/profiles/sarah.jpg",
+        "role": "Frontend Developer"
+      }
+    ],
+    "roles": [
+      "Java Programmer",
+      "Data Analyst",
+      "Frontend Developer"
+    ]
+  },
+  {
+    "id": "4",
+    "title": "DevCollab",
+    "description": "DevCollab is a software project aimed at delivering core functionality in its domain. It includes features like user interaction, data management, and responsive design, providing developers with a solid base to improve their skills and collaborate.",
+    "stack": [
+      "AngularJS",
+      "TailwindCSS",
+      "Node.js"
+    ],
+    "difficulty": "Beginner",
+    "author": "Perfect Patience",
+    "active": true,
+    "repo": "https://github.com/Perfect-Patience/devcollab",
+    "collaborators": [
+      {
+        "id": "u001",
+        "name": "Sarah Johnson",
+        "profilePic": "/profiles/sarah.jpg",
+        "role": "Frontend Developer"
+      },
+      {
+        "id": "u004",
+        "name": "Kwame Boateng",
+        "profilePic": "/profiles/kwame.jpg",
+        "role": "DevOps Engineer"
+      }
+    ],
+    "pendingCollaborators": [
+      {
+        "id": "u005",
+        "name": "Ama Serwaa",
+        "profilePic": "/profiles/ama.jpg",
+        "role": "Project Manager"
+      }
+    ],
+    "roles": [
+      "Backend Developer",
+      "QA Tester",
+      "Frontend Developer"
+    ]
+  },
+  {
+    "id": "5",
+    "title": "Portfolio Website",
+    "description": "Portfolio Website is a software project aimed at delivering core functionality in its domain. It includes features like user interaction, data management, and responsive design, providing developers with a solid base to improve their skills and collaborate.",
+    "stack": [
+      "MongoDB",
+      "Node.js",
+      "Express"
+    ],
+    "difficulty": "Beginner",
+    "author": "Perfect Patience",
+    "active": true,
+    "repo": "https://github.com/Perfect-Patience/portfoliowebsite",
+    "collaborators": [
+      {
+        "id": "u001",
+        "name": "Sarah Johnson",
+        "profilePic": "/profiles/sarah.jpg",
+        "role": "Frontend Developer"
+      },
+      {
+        "id": "u004",
+        "name": "Kwame Boateng",
+        "profilePic": "/profiles/kwame.jpg",
+        "role": "DevOps Engineer"
+      }
+    ],
+    "pendingCollaborators": [
+      {
+        "id": "u003",
+        "name": "Linda Ofori",
+        "profilePic": "/profiles/linda.jpg",
+        "role": "UI/UX Designer"
+      }
+    ],
+    "roles": [
+      "UI/UX Designer",
+      "Backend Developer",
+      "Frontend Developer"
+    ]
+  },
+  {
+    "id": "6",
+    "title": "Blog API",
+    "description": "Blog API is a software project aimed at delivering core functionality in its domain. It includes features like user interaction, data management, and responsive design, providing developers with a solid base to improve their skills and collaborate.",
+    "stack": [
+      "MongoDB",
+      "Electron",
+      "Express"
+    ],
+    "difficulty": "Beginner",
+    "author": "Perfect Patience",
+    "active": true,
+    "repo": "https://github.com/Perfect-Patience/blogapi",
+    "collaborators": [
+      {
+        "id": "u002",
+        "name": "Emmanuel Mensah",
+        "profilePic": "/profiles/emmanuel.jpg",
+        "role": "Backend Developer"
+      },
+      {
+        "id": "u005",
+        "name": "Ama Serwaa",
+        "profilePic": "/profiles/ama.jpg",
+        "role": "Project Manager"
+      }
+    ],
+    "pendingCollaborators": [
+      {
+        "id": "u001",
+        "name": "Sarah Johnson",
+        "profilePic": "/profiles/sarah.jpg",
+        "role": "Frontend Developer"
+      }
+    ],
+    "roles": [
+      "Backend Developer",
+      "Data Analyst",
+      "QA Tester"
+    ]
+  },
+  {
+    "id": "7",
+    "title": "Real-time Chat App",
+    "description": "Real-time Chat App is a software project aimed at delivering core functionality in its domain. It includes features like user interaction, data management, and responsive design, providing developers with a solid base to improve their skills and collaborate.",
+    "stack": [
+      "Electron",
+      "Node.js",
+      "Express"
+    ],
+    "difficulty": "Advanced",
+    "author": "Esther Kwashie",
+    "active": true,
+    "repo": "https://github.com/TeamDev/real-timechatapp",
+    "collaborators": [
+      {
+        "id": "u005",
+        "name": "Ama Serwaa",
+        "profilePic": "/profiles/ama.jpg",
+        "role": "Project Manager"
+      },
+      {
+        "id": "u003",
+        "name": "Linda Ofori",
+        "profilePic": "/profiles/linda.jpg",
+        "role": "UI/UX Designer"
+      }
+    ],
+    "pendingCollaborators": [
+      {
+        "id": "u001",
+        "name": "Sarah Johnson",
+        "profilePic": "/profiles/sarah.jpg",
+        "role": "Frontend Developer"
+      }
+    ],
+    "roles": [
+      "Frontend Developer",
+      "Backend Developer",
+      "QA Tester"
+    ]
+  },
+  {
+    "id": "8",
+    "title": "Weather Dashboard",
+    "description": "Weather Dashboard is a software project aimed at delivering core functionality in its domain. It includes features like user interaction, data management, and responsive design, providing developers with a solid base to improve their skills and collaborate.",
+    "stack": [
+      "TypeScript",
+      "Firebase",
+      "TailwindCSS"
+    ],
+    "difficulty": "Beginner",
+    "author": "Paul Arthur",
+    "active": true,
+    "repo": "https://github.com/TeamDev/weatherdashboard",
+    "collaborators": [
+      {
+        "id": "u001",
+        "name": "Sarah Johnson",
+        "profilePic": "/profiles/sarah.jpg",
+        "role": "Frontend Developer"
+      },
+      {
+        "id": "u005",
+        "name": "Ama Serwaa",
+        "profilePic": "/profiles/ama.jpg",
+        "role": "Project Manager"
+      }
+    ],
+    "pendingCollaborators": [
+      {
+        "id": "u002",
+        "name": "Emmanuel Mensah",
+        "profilePic": "/profiles/emmanuel.jpg",
+        "role": "Backend Developer"
+      }
+    ],
+    "roles": [
+      "Backend Developer",
+      "Frontend Developer",
+      "Java Programmer"
+    ]
+  },
+  {
+    "id": "9",
+    "title": "Admin Panel",
+    "description": "Admin Panel is a software project aimed at delivering core functionality in its domain. It includes features like user interaction, data management, and responsive design, providing developers with a solid base to improve their skills and collaborate.",
+    "stack": [
+      "AngularJS",
+      "Electron",
+      "Firebase"
+    ],
+    "difficulty": "Beginner",
+    "author": "Esther Kwashie",
+    "active": true,
+    "repo": "https://github.com/Perfect-Patience/adminpanel",
+    "collaborators": [
+      {
+        "id": "u004",
+        "name": "Kwame Boateng",
+        "profilePic": "/profiles/kwame.jpg",
+        "role": "DevOps Engineer"
+      },
+      {
+        "id": "u002",
+        "name": "Emmanuel Mensah",
+        "profilePic": "/profiles/emmanuel.jpg",
+        "role": "Backend Developer"
+      }
+    ],
+    "pendingCollaborators": [
+      {
+        "id": "u005",
+        "name": "Ama Serwaa",
+        "profilePic": "/profiles/ama.jpg",
+        "role": "Project Manager"
+      }
+    ],
+    "roles": [
+      "QA Tester",
+      "Data Analyst",
+      "Backend Developer"
+    ]
+  },
+  {
+    "id": "10",
+    "title": "E-commerce Product Page",
+    "description": "E-commerce Product Page is a software project aimed at delivering core functionality in its domain. It includes features like user interaction, data management, and responsive design, providing developers with a solid base to improve their skills and collaborate.",
+    "stack": [
+      "TailwindCSS",
+      "Express",
+      "AngularJS"
+    ],
+    "difficulty": "Intermediate",
+    "author": "Esther Kwashie",
+    "active": true,
+    "repo": "https://github.com/Perfect-Patience/e-commerceproductpage",
+    "collaborators": [
+      {
+        "id": "u001",
+        "name": "Sarah Johnson",
+        "profilePic": "/profiles/sarah.jpg",
+        "role": "Frontend Developer"
+      },
+      {
+        "id": "u005",
+        "name": "Ama Serwaa",
+        "profilePic": "/profiles/ama.jpg",
+        "role": "Project Manager"
+      }
+    ],
+    "pendingCollaborators": [
+      {
+        "id": "u003",
+        "name": "Linda Ofori",
+        "profilePic": "/profiles/linda.jpg",
+        "role": "UI/UX Designer"
+      }
+    ],
+    "roles": [
+      "Backend Developer",
+      "Data Analyst",
+      "Frontend Developer"
+    ]
+  },
+  {
+    "id": "11",
+    "title": "Fitness Tracker",
+    "description": "Fitness Tracker is a software project aimed at delivering core functionality in its domain. It includes features like user interaction, data management, and responsive design, providing developers with a solid base to improve their skills and collaborate.",
+    "stack": [
+      "TailwindCSS",
+      "TypeScript",
+      "Vue.js"
+    ],
+    "difficulty": "Beginner",
+    "author": "Perfect Patience",
+    "active": true,
+    "repo": "https://github.com/Perfect-Patience/fitnesstracker",
+    "collaborators": [
+      {
+        "id": "u005",
+        "name": "Ama Serwaa",
+        "profilePic": "/profiles/ama.jpg",
+        "role": "Project Manager"
+      },
+      {
+        "id": "u003",
+        "name": "Linda Ofori",
+        "profilePic": "/profiles/linda.jpg",
+        "role": "UI/UX Designer"
+      }
+    ],
+    "pendingCollaborators": [
+      {
+        "id": "u002",
+        "name": "Emmanuel Mensah",
+        "profilePic": "/profiles/emmanuel.jpg",
+        "role": "Backend Developer"
+      }
+    ],
+    "roles": [
+      "Backend Developer",
+      "UI/UX Designer",
+      "Java Programmer"
+    ]
+  },
+  {
+    "id": "12",
+    "title": "Job Board App",
+    "description": "Job Board App is a software project aimed at delivering core functionality in its domain. It includes features like user interaction, data management, and responsive design, providing developers with a solid base to improve their skills and collaborate.",
+    "stack": [
+      "Express",
+      "Firebase",
+      "TypeScript"
+    ],
+    "difficulty": "Beginner",
+    "author": "Esther Kwashie",
+    "active": true,
+    "repo": "https://github.com/TeamDev/jobboardapp",
+    "collaborators": [
+      {
+        "id": "u004",
+        "name": "Kwame Boateng",
+        "profilePic": "/profiles/kwame.jpg",
+        "role": "DevOps Engineer"
+      },
+      {
+        "id": "u003",
+        "name": "Linda Ofori",
+        "profilePic": "/profiles/linda.jpg",
+        "role": "UI/UX Designer"
+      }
+    ],
+    "pendingCollaborators": [
+      {
+        "id": "u002",
+        "name": "Emmanuel Mensah",
+        "profilePic": "/profiles/emmanuel.jpg",
+        "role": "Backend Developer"
+      }
+    ],
+    "roles": [
+      "QA Tester",
+      "Backend Developer",
+      "Data Analyst"
+    ]
+  },
+  {
+    "id": "13",
+    "title": "Notes App with Tags",
+    "description": "Notes App with Tags is a software project aimed at delivering core functionality in its domain. It includes features like user interaction, data management, and responsive design, providing developers with a solid base to improve their skills and collaborate.",
+    "stack": [
+      "Node.js",
+      "React",
+      "MongoDB"
+    ],
+    "difficulty": "Advanced",
+    "author": "Paul Arthur",
+    "active": true,
+    "repo": "https://github.com/Perfect-Patience/notesappwithtags",
+    "collaborators": [
+      {
+        "id": "u002",
+        "name": "Emmanuel Mensah",
+        "profilePic": "/profiles/emmanuel.jpg",
+        "role": "Backend Developer"
+      },
+      {
+        "id": "u005",
+        "name": "Ama Serwaa",
+        "profilePic": "/profiles/ama.jpg",
+        "role": "Project Manager"
+      }
+    ],
+    "pendingCollaborators": [
+      {
+        "id": "u001",
+        "name": "Sarah Johnson",
+        "profilePic": "/profiles/sarah.jpg",
+        "role": "Frontend Developer"
+      }
+    ],
+    "roles": [
+      "Data Analyst",
+      "Backend Developer",
+      "Frontend Developer"
+    ]
+  },
+  {
+    "id": "14",
+    "title": "Inventory Management Desktop App",
+    "description": "Inventory Management Desktop App is a software project aimed at delivering core functionality in its domain. It includes features like user interaction, data management, and responsive design, providing developers with a solid base to improve their skills and collaborate.",
+    "stack": [
+      "Node.js",
+      "MongoDB",
+      "Vue.js"
+    ],
+    "difficulty": "Advanced",
+    "author": "Esther Kwashie",
+    "active": true,
+    "repo": "https://github.com/Perfect-Patience/inventorymanagementdesktopapp",
+    "collaborators": [
+      {
+        "id": "u001",
+        "name": "Sarah Johnson",
+        "profilePic": "/profiles/sarah.jpg",
+        "role": "Frontend Developer"
+      },
+      {
+        "id": "u003",
+        "name": "Linda Ofori",
+        "profilePic": "/profiles/linda.jpg",
+        "role": "UI/UX Designer"
+      }
+    ],
+    "pendingCollaborators": [
+      {
+        "id": "u002",
+        "name": "Emmanuel Mensah",
+        "profilePic": "/profiles/emmanuel.jpg",
+        "role": "Backend Developer"
+      }
+    ],
+    "roles": [
+      "QA Tester",
+      "UI/UX Designer",
+      "Data Analyst"
+    ]
+  },
+  {
+    "id": "15",
+    "title": "Mobile Banking App",
+    "description": "Mobile Banking App is a software project aimed at delivering core functionality in its domain. It includes features like user interaction, data management, and responsive design, providing developers with a solid base to improve their skills and collaborate.",
+    "stack": [
+      "Express",
+      "Firebase",
+      "React"
+    ],
+    "difficulty": "Advanced",
+    "author": "Paul Arthur",
+    "active": true,
+    "repo": "https://github.com/Perfect-Patience/mobilebankingapp",
+    "collaborators": [
+      {
+        "id": "u005",
+        "name": "Ama Serwaa",
+        "profilePic": "/profiles/ama.jpg",
+        "role": "Project Manager"
+      },
+      {
+        "id": "u002",
+        "name": "Emmanuel Mensah",
+        "profilePic": "/profiles/emmanuel.jpg",
+        "role": "Backend Developer"
+      }
+    ],
+    "pendingCollaborators": [
+      {
+        "id": "u001",
+        "name": "Sarah Johnson",
+        "profilePic": "/profiles/sarah.jpg",
+        "role": "Frontend Developer"
+      }
+    ],
+    "roles": [
+      "Data Analyst",
+      "Backend Developer",
+      "Frontend Developer"
+    ]
+  },
+  {
+    "id": "16",
+    "title": "MERN Stack Blog Platform",
+    "description": "MERN Stack Blog Platform is a software project aimed at delivering core functionality in its domain. It includes features like user interaction, data management, and responsive design, providing developers with a solid base to improve their skills and collaborate.",
+    "stack": [
+      "Express",
+      "React",
+      "Electron"
+    ],
+    "difficulty": "Advanced",
+    "author": "Eunice Asamoah",
+    "active": true,
+    "repo": "https://github.com/Perfect-Patience/mernstackblogplatform",
+    "collaborators": [
+      {
+        "id": "u001",
+        "name": "Sarah Johnson",
+        "profilePic": "/profiles/sarah.jpg",
+        "role": "Frontend Developer"
+      },
+      {
+        "id": "u004",
+        "name": "Kwame Boateng",
+        "profilePic": "/profiles/kwame.jpg",
+        "role": "DevOps Engineer"
+      }
+    ],
+    "pendingCollaborators": [
+      {
+        "id": "u002",
+        "name": "Emmanuel Mensah",
+        "profilePic": "/profiles/emmanuel.jpg",
+        "role": "Backend Developer"
+      }
+    ],
+    "roles": [
+      "QA Tester",
+      "Data Analyst",
+      "Frontend Developer"
+    ]
+  },
+  {
+    "id": "17",
+    "title": "Desktop Markdown Editor",
+    "description": "Desktop Markdown Editor is a software project aimed at delivering core functionality in its domain. It includes features like user interaction, data management, and responsive design, providing developers with a solid base to improve their skills and collaborate.",
+    "stack": [
+      "AngularJS",
+      "TypeScript",
+      "TailwindCSS"
+    ],
+    "difficulty": "Advanced",
+    "author": "Paul Arthur",
+    "active": true,
+    "repo": "https://github.com/Perfect-Patience/desktopmarkdowneditor",
+    "collaborators": [
+      {
+        "id": "u004",
+        "name": "Kwame Boateng",
+        "profilePic": "/profiles/kwame.jpg",
+        "role": "DevOps Engineer"
+      },
+      {
+        "id": "u005",
+        "name": "Ama Serwaa",
+        "profilePic": "/profiles/ama.jpg",
+        "role": "Project Manager"
+      }
+    ],
+    "pendingCollaborators": [
+      {
+        "id": "u002",
+        "name": "Emmanuel Mensah",
+        "profilePic": "/profiles/emmanuel.jpg",
+        "role": "Backend Developer"
+      }
+    ],
+    "roles": [
+      "Data Analyst",
+      "Java Programmer",
+      "UI/UX Designer"
+    ]
+  }
+]
