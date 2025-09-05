@@ -1,3 +1,4 @@
+import { api } from "@/config/axios";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
@@ -6,15 +7,31 @@ const initialState = {
     error: null
 }
 
-const fetchUsers = createAsyncThunk('user/auth', async () => {
-    const res = await api
+export const fetchUsers = createAsyncThunk('user/fetchUsers', async (userId) => {
+
+    const res = await api.get(`/auth/${userId}`);
+
+    return res.data;
 })
 
 export const userSlice = createSlice({
     name: 'user',
     initialState,
-    reducers: {},
+    extraReducers: (builder) => {
+        builder
+            .addCase(fetchUsers.pending, (state, action) => {
+                state.loading = true
+            })
+            .addCase(fetchUsers.fulfilled, (state, action) => {
+                state.loading = false,
+                state.user = action.payload
+            })
+            .addCase(fetchUsers.rejected, (state, action) => {
+                state.loading = false,
+                state.error = action.error
+            })
+    }
 
-})
+});
 
 export default userSlice.reducer;
