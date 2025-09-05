@@ -1,18 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
   CardAction,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { LoginImg } from "@/assets";
+import { api } from "@/config/axios";
+import { useNavigate } from "react-router";
 const LoginPage = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const navigate = useNavigate();
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    try {
+      if (!email || !password) {
+        return "Email and password are required"
+      }
+  
+      const res = await api.post('/auth/login', {
+        email,
+        password
+      });
+  
+      if(res.data.message) {
+        navigate('/dashboard', {replace: true})
+      }
+
+      setEmail('');
+      setPassword('');
+    } catch (error) {
+      console.log("Login error:", error)
+    }
+  }
   return (
     <div className="flex items-center justify-center min-h-screen gap-20">
       <Card className="w-full max-w-sm rounded-none py-0 h-[25rem]">
@@ -30,17 +59,8 @@ const LoginPage = () => {
         </CardContent>
       </Card>
       <Card className="w-full max-w-sm rounded-none bg-[#DFDCFE] h-[25rem] flex flex-col justify-center space-y-4">
-        {/* <CardHeader>
-          <CardTitle>Login to your account</CardTitle>
-          <CardDescription>
-            Enter your email below to login to your account
-          </CardDescription>
-          <CardAction>
-            <Button variant="link">Sign Up</Button>
-          </CardAction>
-        </CardHeader> */}
         <CardContent>
-          <form>
+          <form className="space-y-5" onSubmit={handleLogin}>
             <div className="flex flex-col gap-6">
               <div className="grid gap-2">
                 <Label htmlFor="email">Email</Label>
@@ -48,6 +68,8 @@ const LoginPage = () => {
                   className={"bg-white text-black"}
                   id="email"
                   type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   placeholder="m@example.com"
                   required
                 />
@@ -66,14 +88,13 @@ const LoginPage = () => {
                   className={"bg-white text-black"}
                   id="password"
                   type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   required
                 />
               </div>
             </div>
-          </form>
-        </CardContent>
-        <CardFooter className="flex-col gap-5">
-          <Button
+            <Button
             type="submit"
             className="w-full bg-[#4B0082] hover:bg-[#5e4074]"
           >
@@ -87,7 +108,9 @@ const LoginPage = () => {
           <Button variant="outline" className="w-full">
             Login with Google
           </Button>
-        </CardFooter>
+          </form>
+        </CardContent>
+        
       </Card>
     </div>
   );
