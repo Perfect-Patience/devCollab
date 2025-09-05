@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -12,7 +12,50 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { LoginImg } from "@/assets";
+import { api } from "@/config/axios";
+import { useNavigate } from "react-router";
 const SignupPage = () => {
+  const navigate = useNavigate();
+
+  const [userData, setUserData] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
+
+  const handleSignup = async (e) => {
+    e.preventDefault();
+
+    const { username, email, password } = userData;
+
+    try {
+
+      if (!username || !email || !password) {
+        return "all the fields are required";
+      }
+
+      const res = await api.post("/auth/signup", {
+        username,
+        email,
+        password,
+      });
+
+      console.log("response:", res.data);
+
+      if (res.data.message) {
+        navigate("/login");
+      }
+
+      setUserData({
+        username: "",
+        email: "",
+        password: "",
+      });
+    } catch (error) {
+      console.log("error:", error);
+    }
+  };
+
   return (
     <div className="flex items-center justify-center min-h-screen gap-20">
       <Card className="w-full max-w-sm rounded-none py-0 h-[25rem]">
@@ -30,19 +73,10 @@ const SignupPage = () => {
         </CardContent>
       </Card>
       <Card className="w-full max-w-sm rounded-none bg-[#DFDCFE] h-[25rem] flex flex-col justify-center space-y-4">
-        {/* <CardHeader>
-          <CardTitle>Login to your account</CardTitle>
-          <CardDescription>
-            Enter your email below to login to your account
-          </CardDescription>
-          <CardAction>
-            <Button variant="link">Sign Up</Button>
-          </CardAction>
-        </CardHeader> */}
         <CardContent>
-          <form>
+          <form onSubmit={handleSignup} className="space-y-5">
             <div className="flex flex-col gap-4">
-                <div className="grid gap-2">
+              <div className="grid gap-2">
                 <div className="flex items-center">
                   <Label htmlFor="username">Username</Label>
                 </div>
@@ -50,6 +84,10 @@ const SignupPage = () => {
                   className={"bg-white text-black"}
                   id="username"
                   type="text"
+                  value={userData.username}
+                  onChange={(e) =>
+                    setUserData({ ...userData, username: e.target.value })
+                  }
                   placeholder="Please enter a username"
                   required
                 />
@@ -60,6 +98,10 @@ const SignupPage = () => {
                   className={"bg-white text-black"}
                   id="email"
                   type="email"
+                  value={userData.email}
+                  onChange={(e) =>
+                    setUserData({ ...userData, email: e.target.value })
+                  }
                   placeholder="m@example.com"
                   required
                 />
@@ -72,28 +114,31 @@ const SignupPage = () => {
                   className={"bg-white text-black"}
                   id="password"
                   type="password"
+                  value={userData.password}
+                  onChange={(e) =>
+                    setUserData({ ...userData, password: e.target.value })
+                  }
                   required
                 />
               </div>
             </div>
+
+            <Button
+              
+              className="w-full bg-[#4B0082] hover:bg-[#5e4074] cursor-pointer"
+            >
+              Sign up
+            </Button>
+            <div className="w-[100%] flex justify-between items-center text-[13px]">
+              <span className="w-[35%] h-[1px] block bg-[#676767]"></span>
+              <span className="text-[#676767] block">or continue with</span>
+              <span className="w-[35%] h-[1px] block bg-[#676767]"></span>
+            </div>
+            <Button variant="outline" className="w-full cursor-pointer">
+              Sign up with Google
+            </Button>
           </form>
         </CardContent>
-        <CardFooter className="flex-col gap-5">
-          <Button
-            type="submit"
-            className="w-full bg-[#4B0082] hover:bg-[#5e4074] cursor-pointer"
-          >
-            Sign up
-          </Button>
-          <div className="w-[100%] flex justify-between items-center text-[13px]">
-            <span className="w-[35%] h-[1px] block bg-[#676767]"></span>
-            <span className="text-[#676767] block">or continue with</span>
-            <span className="w-[35%] h-[1px] block bg-[#676767]"></span>
-          </div>
-          <Button variant="outline" className="w-full cursor-pointer">
-            Sign up with Google
-          </Button>
-        </CardFooter>
       </Card>
     </div>
   );
