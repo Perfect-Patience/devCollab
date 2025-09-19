@@ -1,13 +1,20 @@
 import { NavLink } from "react-router";
 import logo from "../assets/logo.svg";
 import { useNavigate } from "react-router";
+import { useAuth } from "@/hooks/useAuth";
+import ProfileAvatar from "./ProfileAvatar";
+import { logoutUser } from "@/redux-app/features/user/userSlice";
+import { useDispatch } from "react-redux";
 
 function PurpleNavBar() {
   const navigate = useNavigate();
+  const dispatch = useDispatch()
   function ToggleMenu() {
     const menu = document.getElementById("mobile-menu");
     menu.classList.toggle("hidden");
   }
+  const {user} = useAuth();
+  console.log(user)
 
   return (
     <div>
@@ -25,14 +32,22 @@ function PurpleNavBar() {
             <NavLink to="about">About</NavLink>
           </ul>
         </div>
+        { user? 
         <div className="btns font-bold hidden md:flex gap-6">
+          <ProfileAvatar image={"https://plus.unsplash.com/premium_photo-1661689108279-e046eef0185d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDZ8fHxlbnwwfHx8fHw%3D"}/>
+          <button onClick={() => dispatch(logoutUser())} className="bg-white px-3 rounded-sm cursor-pointer">
+            Logout
+          </button>
+        </div>
+        
+        : <div className="btns font-bold hidden md:flex gap-6">
           <button onClick={() => navigate('/login')} className="bg-white px-3 rounded-sm cursor-pointer">
             Login
           </button>
           <button onClick={() => navigate('/signup')} className="bg-[#4B0082] px-3 rounded-sm text-white cursor-pointer">
             Sign Up
           </button>
-        </div>
+        </div>}
 
         <button onClick={ToggleMenu} className="md:hidden ">
           <svg
@@ -57,16 +72,16 @@ function PurpleNavBar() {
         </button>
       </div>
       <div
-        className="md:hidden hidden absolute w-full h-screen top-0 left-0 px-10 py-10 flex justify-between items-start"
+        className="md:hidden  absolute w-full h-screen top-0 left-0 px-10 py-10 flex justify-between items-start"
         id="mobile-menu"
         style={{ backgroundColor: "oklch(0.14 0.06 308.36)" }}
       >
         <ul className="text-lg flex flex-col gap-5 text-white">
-          <li className="">Home</li>
-          <li>About</li>
-          <li>How it works</li>
-          <li>Login</li>
-          <li>SignUp</li>
+           <NavLink to="/">Home</NavLink>
+            <NavLink to="HowItWorks">How it works</NavLink>
+            <NavLink to="about">About</NavLink>
+          <NavLink to={'/login'}>Login</NavLink>
+          <NavLink to={'/signup'}>SignUp</NavLink>
         </ul>
         <button
           onClick={ToggleMenu}

@@ -12,19 +12,22 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { LoginImg } from "@/assets";
-import { api } from "@/config/axios";
+// import { api } from "@/config/axios";
 import { useNavigate } from "react-router";
 import githubIcon from '../assets/GitHub.svg';
 import googleIcon from '../assets/Google.svg';
+import { useDispatch, useSelector } from "react-redux";
+import { loginUser } from "@/redux-app/features/user/userSlice";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [error, setError] = useState(null)
-
+  const {user, error, loading} = useSelector((store) => store.auth)
+  const [newError, setError] = useState(error)
   const active = document.activeElement;
   const navigate = useNavigate();
+  const dispatch = useDispatch()
 
   const toggleShow = () => {
     setShowPassword(!showPassword)
@@ -46,6 +49,11 @@ const LoginPage = () => {
     else{document.querySelector('#password').type = "password"}
 
   },[showPassword])
+
+useEffect(() => {
+  setError(error);
+}, [error]);
+  
   const handleLogin = async (e) => {
     e.preventDefault();
 
@@ -54,20 +62,19 @@ const LoginPage = () => {
         return "Email and password are required";
       }
 
-      const res = await api.post("/auth/login", {
-        email,
-        password,
-      });
 
-      if (res.data.message) {
+      dispatch(loginUser({email, password}))
+
+      if (user) {
         navigate("/dashboard", { replace: true });
       }
+      
 
       setEmail("");
       setPassword("");
     } catch (error) {
       setError(error)
-      console.log("Login error:", error);
+      console.log("Login error:", newError);
     }
   };
   return (
@@ -129,12 +136,12 @@ const LoginPage = () => {
                 </div>
               </div>
             </div>
-            {error? error.response?.data?.message?  <p className="outline-2 outline-red-200 rounded-md px-4 py-0.5 w-fit text-red-500"> ! {error.response?.data?.message} </p> :<p className="outline-2 outline-red-200 rounded-md px-4 py-0.5 w-fit text-red-500"> Something went wrong. Please try again later</p> : null}
-            <Button
+            {newError? newError? <p className="outline-2 outline-red-200 rounded-md px-4 py-0.5 w-fit text-red-500"> ! {newError} </p> :<p className="outline-2 outline-red-200 rounded-md px-4 py-0.5 w-fit text-red-500"> Something went wrong. Please try again later</p> : null}
+           <Button
               type="submit"
               className="w-full bg-[#4B0082] hover:bg-[#5e4074]"
             >
-              Login
+            { loading? "Loging in... " :  "Login" }
             </Button>
             <div className="w-[100%] flex justify-between items-center text-[13px]">
               <span className="w-[35%] h-[1px] block bg-[#676767]"></span>
