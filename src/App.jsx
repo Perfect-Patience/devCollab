@@ -18,6 +18,8 @@ import ProjectDetailsAdminView from "./pages/ProjectDetailsAdminView";
 import MessagePage from "./pages/MessagePage";
 import NotificationPage from "./pages/NotificationPage";
 import SignupPage from "./pages/SignupPage";
+import ForgotPassword from "./pages/ForgotPassowrd";
+import ResetPassword from "./pages/ResetPassword";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +47,14 @@ const router = createBrowserRouter([
   {
     path: "/signup",
     Component: SignupPage,
+  },
+  {
+    path: "/forgotPassword",
+    Component: ForgotPassword,
+  },
+  {
+    path: "/resetPassword",
+    Component: ResetPassword,
   },
   {
     path: "/dashboard",
