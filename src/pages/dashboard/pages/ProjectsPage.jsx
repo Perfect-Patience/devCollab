@@ -1,6 +1,7 @@
 import DashboardHeader from "@/components/DashboardHeader";
 import ProjectSumary from "@/components/ProjectSumary";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
   Dialog,
@@ -18,7 +19,8 @@ import { NavLink, Outlet } from "react-router";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Spinner } from "@/components/ui/spinner"
 // import { description } from "@/components/ChartLine";
-import { postProject } from "@/redux-app/features/project/projectSlice";
+import { postProject, deleteProject } from "@/redux-app/features/project/projectSlice";
+import toast from "react-hot-toast";
 
 
 const ProjectsPage = () => {
@@ -28,13 +30,15 @@ const {user} = useSelector((store) => store.auth);
 const {projects, loading, error} = useSelector((store) => store.userProjects);
 const {project, projectLoading, projectError} = useSelector((store) => store.project)
 const [formData , setFormData] = useState({
-  title : "",
-  description : "",
-  stack: [],
+  title: "",
+  description: "",
+  techStack: [],
   rolesNeeded: [],
-  difficultyLevel : "",
+  difficultyLevel: "",
   githubRepo: ""
 })
+const [newStackItem, setNewStackItem] = useState('');
+const [newRoleItem, setNewRoleItem] = useState('');
 const [dialogOpen, setDialogOpen] = useState(false);
 
 useEffect(() => {
@@ -43,9 +47,33 @@ useEffect(() => {
     }
   }, [dispatch, user]);
 
+  const handleAddStackItem = () => {
+    if (newStackItem.trim() === '') return;
+    setFormData(prev => ({
+      ...prev,
+      techStack: [...prev.techStack, newStackItem.trim()]
+    }));
+    setNewStackItem('');
+  };
+  const handleAddRoleItem = () => {
+    if (newRoleItem.trim() === '') return;
+    setFormData(prev => ({ ...prev, rolesNeeded: [...prev.rolesNeeded, newRoleItem.trim()] }));
+    setNewRoleItem('');
+  };
+
+  const handleRemoveItem = (field, indexToRemove) => {
+    setFormData(prev => ({
+      ...prev,
+      [field]: prev[field].filter((_, index) => index !== indexToRemove)
+    }));
+  };
 
   async function handleSubmit(e){
 e.preventDefault()
+    if (!formData.difficultyLevel) {
+      toast.error('Please select a difficulty level.');
+      return;
+    }
     console.log("attempting to submit form")
     console.log(formData)
 
@@ -75,7 +103,7 @@ if(error){
 
   
   return (
-    <div className="space-y-14">
+    <div className="space-y-14 px-4 overflow-y-scroll overflow-x-hidden h-[100%]">
       <DashboardHeader
         title={"Projects"}
         text={"Find all projects you're part of or join a new project"}
@@ -124,19 +152,47 @@ if(error){
                   <Label className="font-normal" htmlFor="stack">
                     Tech Stack:
                   </Label>
-                  <Input
-                    type="text"
-                    id="stack"
-                    placeholder="Enter your stack..."
-                  />
+                  <div className="flex items-center gap-2">
+                    <Input
+                      type="text"
+                      id="stack-input"
+                      placeholder="e.g. React"
+                      value={newStackItem}
+                      onChange={(e) => setNewStackItem(e.target.value)}
+                      onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); handleAddStackItem(); } }}
+                    />
+                    <Button type="button" onClick={handleAddStackItem}>Add</Button>
+                  </div>
+                  <div className="flex flex-wrap gap-2 mt-2 min-h-[24px]">
+                    {formData.techStack.map((item, index) => (
+                      <Badge key={index} variant="secondary" className="flex items-center gap-2">
+                        {item}
+                        <button type="button" className="text-xs font-bold text-red-500 hover:text-red-700" onClick={() => handleRemoveItem('techStack', index)}>&times;</button>
+                      </Badge>
+                    ))}
+                  </div>
                   <Label className="font-normal" htmlFor="roles">
                     Preferred Roles:
                   </Label>
-                  <Input
-                    type="text"
-                    id="roles"
-                    placeholder="Enter the preferred roles..."
-                  />
+                  <div className="flex items-center gap-2">
+                    <Input
+                      type="text"
+                      id="roles-input"
+                      placeholder="e.g. Frontend Developer"
+                      value={newRoleItem}
+                      onChange={(e) => setNewRoleItem(e.target.value)}
+                      onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); handleAddRoleItem(); } }}
+                    />
+                    <Button type="button" onClick={handleAddRoleItem}>Add</Button>
+                  </div>
+                  <div className="flex flex-wrap gap-2 mt-2 min-h-[24px]">
+                    {formData.rolesNeeded.map((item, index) => (
+                      <Badge key={index} variant="secondary" className="flex items-center gap-2">
+                        {item}
+                        <button type="button" className="text-xs font-bold text-red-500 hover:text-red-700" onClick={() => handleRemoveItem('rolesNeeded', index)}>&times;</button>
+                      </Badge>
+                    ))}
+                  </div>
                   <Label className="font-normal" htmlFor="github">
                     GitHub Link:
                   </Label>
@@ -200,7 +256,7 @@ if(error){
         </div>
       </div>
       <div className="space-y-5">
-        {projects && projects.length > 0? projects.map((project) => <ProjectSumary title={project.title} description={project.description} numOfCollab={project.contributors.length} status={project.status} numOfRequests={0}/>
+        {projects && projects.length > 0? projects.map((project) => <ProjectSumary key={project._id} title={project.title} description={project.description} numOfCollab={project.contributors.length} status={project.status} numOfRequests={0} id={project._id} />
 
         ): <p className="text-center text-lg text-slate-400">No projects to display.</p>} 
        
