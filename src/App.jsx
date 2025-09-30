@@ -22,6 +22,9 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { loadUser } from "./redux-app/features/user/userSlice";
 import { PrivateRoute, PublicRoute } from "./helpers/routeProtect";
+import ForgotPassword from "./pages/ForgotPassowrd";
+import ResetPassword from "./pages/ResetPassword";
+
 
 const router = createBrowserRouter([
   {
@@ -55,6 +58,14 @@ const router = createBrowserRouter([
     element: <PublicRoute>
       <SignupPage/>
     </PublicRoute>
+  },
+  {
+    path: "/forgotPassword",
+    Component: ForgotPassword,
+  },
+  {
+    path: "/resetPassword",
+    Component: ResetPassword,
   },
   {
     path: "/dashboard",
