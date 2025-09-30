@@ -38,7 +38,7 @@ const ProjectSummary = ({ title, description, numOfCollab, numOfRequests, status
               <AvatarFallback>ER</AvatarFallback>
             </Avatar>
           </div>
-          <span className="text-xs text-gray-500">{numOfCollab} collaborators</span>
+          <span className="text-xs text-gray-500">{numOfCollab} {numOfCollab <= 1? "collaborator" : "collaborators"}</span>
         </div>
 
         {/* Requests */}
@@ -55,7 +55,7 @@ const ProjectSummary = ({ title, description, numOfCollab, numOfRequests, status
             </Badge>
           ) : (
             <Badge variant="secondary" className="flex items-center gap-1 text-green-600 border-green-400">
-              <CheckCircle className="w-4 h-4" /> Completed
+              <CheckCircle className="w-4 h-4" /> {status}
             </Badge>
           )}
         </div>

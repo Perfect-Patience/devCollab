@@ -19,8 +19,9 @@ import { NavLink, Outlet } from "react-router";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Spinner } from "@/components/ui/spinner"
 // import { description } from "@/components/ChartLine";
-import { postProject, deleteProject } from "@/redux-app/features/project/projectSlice";
+import { postProject } from "@/redux-app/features/project/projectSlice";
 import toast from "react-hot-toast";
+import { DialogTitle } from "@radix-ui/react-dialog";
 
 
 const ProjectsPage = () => {
@@ -28,7 +29,7 @@ const ProjectsPage = () => {
   // const navigate = useNavigate();
 const {user} = useSelector((store) => store.auth);
 const {projects, loading, error} = useSelector((store) => store.userProjects);
-const {project, projectLoading, projectError} = useSelector((store) => store.project)
+const { projectLoading } = useSelector((store) => store.project)
 const [formData , setFormData] = useState({
   title: "",
   description: "",
@@ -115,13 +116,14 @@ if(error){
           {projectLoading? <div className="flex h-screen items-center justify-center">
       <Spinner size="lg" />
     </div>:<Dialog open={dialogOpen} onOpenChange={setDialogOpen} >
+      <DialogTitle></DialogTitle>
             <DialogTrigger asChild>
               <Button variant="outline" className={
               "cursor-pointer border-3 border-[#7D0FF2] bg-white text-black hover:text-white hover:bg-[#7D0FF2] px-4 py-1 rounded-md font-semibold"
 
             }>Add Project</Button>
             </DialogTrigger>
-            <DialogContent className="sm:max-w-md">
+            <DialogContent className="sm:max-w-md max-h-[90vh] overflow-y-auto">
               <div className="space-y-5">
                 <h3>Add a Project</h3>
                 <form className="space-y-2.5 font-normal" onSubmit={(e) => handleSubmit(e)}>

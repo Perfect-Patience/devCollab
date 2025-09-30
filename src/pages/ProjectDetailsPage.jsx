@@ -70,7 +70,9 @@ function ProjectDetailsPage() {
                         </NavLink>
                       )}
                       <Dialog>
+                        <DialogTitle></DialogTitle>
                         <form>
+                          
                           <DialogTrigger asChild>
                             <button className='bg-[#4B0082] text-white px-6 py-1 rounded-md cursor-pointer'>Join</button>
                           </DialogTrigger>

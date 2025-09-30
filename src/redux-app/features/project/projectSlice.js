@@ -109,7 +109,7 @@ export const projectSlice = createSlice({
             .addCase(deleteProject.pending, (state) => {
                 state.projectLoading = true;
             })
-            .addCase(deleteProject.fulfilled, (state, action) => {
+            .addCase(deleteProject.fulfilled, (state) => {
                 state.projectLoading = false,
                 // The project is deleted, so we can set it to null or handle as needed
                 state.project = null 
