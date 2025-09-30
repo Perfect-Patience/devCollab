@@ -18,13 +18,20 @@ import ProjectDetailsAdminView from "./pages/ProjectDetailsAdminView";
 import MessagePage from "./pages/MessagePage";
 import NotificationPage from "./pages/NotificationPage";
 import SignupPage from "./pages/SignupPage";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { loadUser } from "./redux-app/features/user/userSlice";
+import { PrivateRoute, PublicRoute } from "./helpers/routeProtect";
 import ForgotPassword from "./pages/ForgotPassowrd";
 import ResetPassword from "./pages/ResetPassword";
+
 
 const router = createBrowserRouter([
   {
     path: "/",
-    Component: LandingPageLayout,
+    element:(
+<LandingPageLayout/>
+     ),
     children: [
       {
         index: true,
@@ -42,11 +49,15 @@ const router = createBrowserRouter([
   },
   {
     path: "/login",
-    Component: LoginPage,
+    element: <PublicRoute>
+      <LoginPage/>
+    </PublicRoute>
   },
   {
-    path: "/signup",
-    Component: SignupPage,
+     path: "/signup",
+    element: <PublicRoute>
+      <SignupPage/>
+    </PublicRoute>
   },
   {
     path: "/forgotPassword",
@@ -58,7 +69,9 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    Component: DashBoardLayout,
+    element: <PrivateRoute>
+      <DashBoardLayout/>
+    </PrivateRoute>,
     children: [
       {
         index: true,
@@ -84,7 +97,9 @@ const router = createBrowserRouter([
   },
   {
     path: "explore",
-    Component: ProjectListingPage,
+    element: 
+      <ProjectListingPage/>
+    ,
   },
   {
     path: "profile",
@@ -108,6 +123,11 @@ const router = createBrowserRouter([
   },
 ]);
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(loadUser());
+  }, [dispatch])
   return <RouterProvider router={router} />;
 }
 

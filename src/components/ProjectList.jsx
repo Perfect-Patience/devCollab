@@ -2,7 +2,6 @@ import React from 'react'
 import { BsFunnel } from "react-icons/bs";
 import ProjectTile from '@/components/projectTile';
   import { useState } from 'react';
-
 function ProjectList({searchedText, filter, setFilter}) {
   const filters = [
   "Web",
@@ -165,7 +164,7 @@ const projects = [
   {
     id: 17,
     title: "Desktop Markdown Editor",
-    description: "A lightweight desktop markdown editor with real-time preview, export options, and theme support. Ideal for writers and developers who need offline editing.",
+    description: "A lightweight desktop markdown editor with real-time preview, export options, and theme support. Ideal for writers and developers who need to offline editing.",
     stack: ["Electron", "React", "TailwindCSS"],
     difficulty: "Intermediate",
     author: "Linda Boateng",

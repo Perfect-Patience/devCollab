@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Global styles to hide scrollbars but keep functionality.
+*/
+
+/* For Webkit-based browsers (Chrome, Safari, Edge, etc.) */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: none;
+}

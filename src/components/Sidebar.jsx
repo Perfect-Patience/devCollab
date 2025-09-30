@@ -11,10 +11,10 @@ const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="p-2">
+    <div className="">
       <div className="h-screen hidden md:flex w-0 md:w-72 p-8 justify-between flex-col border-r-1 border-r-[#E4E4E4] bg-[#4B0084]">
         <div className="flex items-start w-fit  gap-2  flex-col">
-          <img className="h-[2.2rem]" src={logo} alt="website logo" />
+          <img className="h-[2.2rem] " src={logo} alt="website logo" />
           <p className="text-white text-lg font-light self-center">Dashboard</p>
         </div>
         <div className="flex flex-col gap-10 text-white font-semibold">

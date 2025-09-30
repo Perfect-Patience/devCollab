@@ -7,7 +7,7 @@ import React from "react";
 
 const OverviewPage = () => {
   return (
-    <div className="min-h-screen flex flex-col justify-center space-y-5 pb-10">
+    <div className="min-h-screen flex flex-col justify-center space-y-5 pb-10 overflow-y-scroll">
       <DashboardHeader
         title={"Overview"}
         text={"Explore a summary of your activities here"}

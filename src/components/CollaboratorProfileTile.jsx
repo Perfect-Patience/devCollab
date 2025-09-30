@@ -9,7 +9,7 @@ function CollaboratorProfileTile({person, pending}) {
             </div>
             <div>
 <div className='relative'>
-                <p className='text-sm font-semibold'>{person.name}</p>
+                <p className='text-sm font-semibold'>{person.userId.username}</p>
                     {pending? <div className='absolute w-2.5 h-2.5 bg-green-600 rounded-full top-0 right-0'></div> : ""}
 </div>
 
