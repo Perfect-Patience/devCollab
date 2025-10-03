@@ -5,7 +5,7 @@ import ProjectList from '@/components/ProjectList';
 import Footer from '@/components/Footer';
 function ProjectListingPage() {
 const [searchedText, setSearchedText] = useState('');
-const [filter, setFilter] = useState("Popular");
+const [filter, setFilter] = useState("All");
 
   return (
     <div>

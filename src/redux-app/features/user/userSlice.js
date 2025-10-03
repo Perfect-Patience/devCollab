@@ -2,9 +2,9 @@ import { api } from "@/config/axios";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    user: null,
     loading: false,
-    error: null
+    error: null,
+    user: null,
 }
 
 export const fetchUsers = createAsyncThunk('user/fetchUsers', async (userId) => {
@@ -14,16 +14,16 @@ export const fetchUsers = createAsyncThunk('user/fetchUsers', async (userId) => 
     return res.data;
 })
 
-export const loadUser = createAsyncThunk('loaduser', async (_, thunkAPI) => {
+export const loadUser = createAsyncThunk('user/loadUser', async (_, { rejectWithValue }) => {
     try {
         const res = await api.get('/auth/loadUser');
-        return thunkAPI.fulfillWithValue(res.data);
+        return res.data;
     } catch (error) {
         if (error.response && error.response.data.message) {
-            return thunkAPI.rejectWithValue(null)
+            return rejectWithValue(error.response.data.message);
         }
-
-        return thunkAPI.rejectWithValue(null)
+        // Return a generic error message if no specific one is available
+        return rejectWithValue('Failed to load user data.');
     }
 });
 
@@ -88,7 +88,7 @@ export const userSlice = createSlice({
             })
             .addCase(loginUser.rejected, (state, action) => {
                 state.loading = false;
-                state.user = null;
+                // state.user = null; // It's often better to not clear user on a failed login attempt
                 state.error = action.payload
             })
 

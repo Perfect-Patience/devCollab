@@ -9,12 +9,15 @@ const initialState = {
 
 export const getAllProjects = createAsyncThunk(
   "allProjects/getAllProjects",
-  async (_, { rejectWithValue }) => {
+  async (_, thunkAPI) => {
     try {
-      const response = await api.get("/projects");
-      return response.data.projects || [];
+      console.log("getting all projects")
+      const response = await api.get("/project");
+      console.log("response")
+      console.log(response.data)
+      return response.data || [];
     } catch (error) {
-      return rejectWithValue(error.response.data);
+      return thunkAPI.rejectWithValue(error.response.data);
     }
   }
 );
