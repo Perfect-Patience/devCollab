@@ -25,13 +25,10 @@ import { PrivateRoute, PublicRoute } from "./helpers/routeProtect";
 import ForgotPassword from "./pages/ForgotPassowrd";
 import ResetPassword from "./pages/ResetPassword";
 
-
 const router = createBrowserRouter([
   {
     path: "/",
-    element:(
-<LandingPageLayout/>
-     ),
+    element: <LandingPageLayout />,
     children: [
       {
         index: true,
@@ -49,15 +46,19 @@ const router = createBrowserRouter([
   },
   {
     path: "/login",
-    element: <PublicRoute>
-      <LoginPage/>
-    </PublicRoute>
+    element: (
+      <PublicRoute>
+        <LoginPage />
+      </PublicRoute>
+    ),
   },
   {
-     path: "/signup",
-    element: <PublicRoute>
-      <SignupPage/>
-    </PublicRoute>
+    path: "/signup",
+    element: (
+      <PublicRoute>
+        <SignupPage />
+      </PublicRoute>
+    ),
   },
   {
     path: "/forgotPassword",
@@ -69,9 +70,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <PrivateRoute>
-      <DashBoardLayout/>
-    </PrivateRoute>,
+    element: (
+      <PrivateRoute>
+        <DashBoardLayout />
+      </PrivateRoute>
+    ),
     children: [
       {
         index: true,
@@ -97,9 +100,7 @@ const router = createBrowserRouter([
   },
   {
     path: "explore",
-    element: 
-      <ProjectListingPage/>
-    ,
+    element: <ProjectListingPage />,
   },
   {
     path: "profile",
@@ -127,7 +128,7 @@ function App() {
 
   useEffect(() => {
     dispatch(loadUser());
-  }, [dispatch])
+  }, [dispatch]);
   return <RouterProvider router={router} />;
 }
 
