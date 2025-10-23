@@ -1,5 +1,5 @@
 import BlueNavBar from '@/components/BlueNavBar';
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavLink, useParams } from 'react-router'
 
 // import projects from '../../database.json';
@@ -21,7 +21,8 @@ import { Label } from "@/components/ui/label"
 import CollaboratorProfileTile from '@/components/CollaboratorProfileTile'
 import Footer from '@/components/Footer';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchProject } from '@/redux-app/features/project/projectSlice';
+import { fetchProject, requestToJoinProject } from '@/redux-app/features/project/projectSlice';
+import toast from 'react-hot-toast';
 
 const getIconUrl = (name) => {
   return `/src/assets/stack-icons/${name}.svg`;
@@ -29,18 +30,42 @@ const getIconUrl = (name) => {
 
 function ProjectDetailsPage() {
      const { id } = useParams();
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); 
+  const [joinMessage, setJoinMessage] = useState('');
+  const [joinDialogOpen, setJoinDialogOpen] = useState(false);
+
   const { project, projectLoading, projectError } = useSelector(
     (state) => state.project
   );
   const { user } = useSelector((state) => state.auth);
-  console.log(user)
 
   const isOwner = user && project && user.user._id === project.ownerId._id;
 
   useEffect(() => {
     dispatch(fetchProject(id));
   }, [dispatch, id]);
+
+  const handleJoinRequest = async (e) => {
+    e.preventDefault();
+    if (!user || !user.user) {
+      toast.error("You must be logged in to join a project.");
+      return;
+    }
+
+    const result = await dispatch(requestToJoinProject({
+      projectId: id,
+      userId: user.user._id,
+      message: joinMessage,
+    }));
+
+    if (requestToJoinProject.fulfilled.match(result)) {
+      toast.success("Your request to join has been sent!");
+      setJoinDialogOpen(false);
+      setJoinMessage('');
+    } else {
+      toast.error(result.payload || "Failed to send join request.");
+    }
+  };
 
   if (projectLoading) {
     return <div>Loading project details...</div>;
@@ -53,7 +78,6 @@ function ProjectDetailsPage() {
   if (!project) {
     return <div>Project not found.</div>;
   }
-    console.log(project)
   return (
     <div>
         <BlueNavBar/>
@@ -69,9 +93,8 @@ function ProjectDetailsPage() {
                           <Button variant="outline">Edit</Button>
                         </NavLink>
                       )}
-                      <Dialog>
-                        <DialogTitle></DialogTitle>
-                        <form>
+                      <Dialog open={joinDialogOpen} onOpenChange={setJoinDialogOpen}>
+                        <form onSubmit={handleJoinRequest}>
                           
                           <DialogTrigger asChild>
                             <button className='bg-[#4B0082] text-white px-6 py-1 rounded-md cursor-pointer'>Join</button>
@@ -87,7 +110,12 @@ function ProjectDetailsPage() {
                             <div className="grid gap-4">
                               <div className="grid gap-3">
                                 <Label htmlFor="name-1" className='font-normal'>Let the project admin know why you&apos;re interested in joining this project. (Max 300 characters) Optional</Label>
-                                <textarea id="name-1"  rows="4" name="name"></textarea>
+                                <textarea 
+                                  id="name-1"  
+                                  rows="4" 
+                                  name="name"
+                                  value={joinMessage}
+                                  onChange={(e) => setJoinMessage(e.target.value)}></textarea>
                               </div>
                               
                             </div>
@@ -95,9 +123,7 @@ function ProjectDetailsPage() {
                               <DialogClose asChild>
                                 <Button variant="outline">Cancel</Button>
                               </DialogClose>
-                              <DialogClose>
                               <Button type="submit">Join</Button>
-                              </DialogClose>
                             </DialogFooter>
                           </DialogContent>
                         </form>

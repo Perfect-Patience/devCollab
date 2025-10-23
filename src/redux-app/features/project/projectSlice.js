@@ -58,6 +58,23 @@ export const deleteProject = createAsyncThunk('/project/deleteProject', async (p
         return thunkAPI.rejectWithValue('Something went wrong while deleting the project.');
     }
 })
+
+export const requestToJoinProject = createAsyncThunk('/join-requests/create', async (data, thunkAPI) => {
+    console.log("sending join request....")
+    try {
+        const res = await api.post(`/join-requests/create`,data)
+
+        console.log(res)
+        return res.data
+    } catch (error) {
+        if (error.response && error.response.data.message) {
+            return thunkAPI.rejectWithValue(error.response.data.message);
+        }
+        return thunkAPI.rejectWithValue('Something went wrong while deleting the project.');
+    }
+})
+
+
 export const projectSlice = createSlice({
     name: 'project',
     initialState,

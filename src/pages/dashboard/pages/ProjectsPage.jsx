@@ -30,7 +30,6 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Spinner } from "@/components/ui/spinner";
 import { postProject } from "@/redux-app/features/project/projectSlice";
 import toast from "react-hot-toast";
-import { DialogTitle } from "@radix-ui/react-dialog";
 
 const ProjectsPage = () => {
   const dispatch = useDispatch();
@@ -53,23 +52,22 @@ const ProjectsPage = () => {
   const [techStackOpen, setTechStackOpen] = useState(false);
   const [techStackSearch, setTechStackSearch] = useState("");
 
-  // This list should be populated with the names of your icon files in 'src/assets/stack-icons'
   const availableTechStack = useMemo(
     () => [
       { value: "React", label: "React" },
       { value: "Redux", label: "Redux" },
       { value: "Next.js", label: "Next.js" },
-      { value: "Vue js", label: "Vue.js" },
+      { value: "Vue.js", label: "Vue.js" },
       { value: "Vuex", label: "Vuex" },
       { value: "Nuxt.js", label: "Nuxt.js" },
       { value: "AngularJs", label: "Angular" },
       { value: "Angular", label: "Angular" }, // Modern Angular
-      { value: "Node js", label: "Node.js" },
+      { value: "Node.js", label: "Node.js" },
       { value: "Express", label: "Express" },
-      { value: "NestJS", label: "NestJS" },
+      { value: "Nest.js", label: "NestJS" },
       { value: "Koa", label: "Koa" },
       { value: "MongoDB", label: "MongoDB" },
-      { value: "Mongoose", label: "Mongoose" },
+      { value: "Mongoose.js", label: "Mongoose" },
       { value: "Firebase", label: "Firebase" },
       { value: "PostgreSQL", label: "PostgreSQL" },
       { value: "MySQL", label: "MySQL" },
@@ -269,7 +267,6 @@ const ProjectsPage = () => {
             </div>
           ) : (
             <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
-<DialogTitle></DialogTitle>
               <DialogTrigger asChild>
                 <Button
                   variant="outline"
