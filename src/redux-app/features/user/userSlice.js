@@ -65,8 +65,66 @@ export const updateUser = createAsyncThunk(
 
       return thunkAPI.rejectWithValue("could not update user profile");
     }
-  }
-);
+})
+export const userSlice = createSlice({
+    name: 'user',
+    initialState,
+    extraReducers: (builder) => {
+        builder
+            .addCase(fetchUsers.pending, (state) => {
+                state.loading = true
+            })
+            .addCase(fetchUsers.fulfilled, (state, action) => {
+                state.loading = false,
+                state.user = action.payload
+            })
+            .addCase(fetchUsers.rejected, (state, action) => {
+                state.loading = false,
+                state.error = action.error
+            })
+
+// login
+             .addCase(loginUser.pending, (state) => {
+                state.loading = true;
+            })
+            .addCase(loginUser.fulfilled, (state, action) => {
+                state.loading = false;
+                state.user = action.payload
+            })
+            .addCase(loginUser.rejected, (state, action) => {
+                state.loading = false;
+                // state.user = null; // It's often better to not clear user on a failed login attempt
+                state.error = action.payload
+            })
+
+
+            // this is for loaduser cases
+            .addCase(loadUser.pending, (state) => {
+                state.loading = true;
+            })
+            .addCase(loadUser.fulfilled, (state, action) => {
+                state.loading = false;
+                state.user = action.payload;
+            })
+            .addCase(loadUser.rejected, (state, action) => {
+                state.loading = false;
+                state.user = null;
+                state.error = action.payload
+            })
+
+            // logout user
+            .addCase(logoutUser.pending, (state) => {
+                state.loading = true;
+            })
+            .addCase(logoutUser.fulfilled, (state) => {
+                state.loading = false;
+                state.user = null;
+            })
+            .addCase(logoutUser.rejected, (state, action) => {
+                state.loading = false;
+               
+                state.error = action.payload
+            })
 
 export const profileUpload = createAsyncThunk(
   "auth/profile",
