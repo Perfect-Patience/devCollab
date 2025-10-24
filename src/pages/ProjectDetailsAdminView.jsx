@@ -449,8 +449,8 @@ function ProjectDetailsAdminView() {
             {/* I'm assuming `contributors` is the correct field based on your schema */}
             {project.contributors && project.contributors.length > 0 ? (
               <div className="flex flex-col gap-6 mt-4">
-                {project.contributors.map((person) => (
-                  <CollaboratorProfileTile key={person.userId} person={person} />
+                {project.contributors.map(({ user, role }) => (
+                  <CollaboratorProfileTile key={user._id} person={user} role={role} />
                 ))}
               </div>
             ) : (

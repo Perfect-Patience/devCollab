@@ -30,6 +30,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Spinner } from "@/components/ui/spinner";
 import { postProject } from "@/redux-app/features/project/projectSlice";
 import toast from "react-hot-toast";
+import { DialogTitle } from "@radix-ui/react-dialog";
 
 const ProjectsPage = () => {
   const dispatch = useDispatch();
@@ -193,18 +194,17 @@ const ProjectsPage = () => {
     }));
   };
 
-
   const handleToggleTech = (value) => {
-  console.log("toggle tech:", value);
-  setFormData((prev) => {
-    const exists = prev.techStack.includes(value);
-    const newStack = exists
-      ? prev.techStack.filter((t) => t !== value)
-      : [...prev.techStack, value];
-    console.log("newStack:", newStack);
-    return { ...prev, techStack: newStack };
-  });
-};
+    console.log("toggle tech:", value);
+    setFormData((prev) => {
+      const exists = prev.techStack.includes(value);
+      const newStack = exists
+        ? prev.techStack.filter((t) => t !== value)
+        : [...prev.techStack, value];
+      console.log("newStack:", newStack);
+      return { ...prev, techStack: newStack };
+    });
+  };
   const handleTagChange = (tag) => {
     setFormData((prev) => {
       const newTags = prev.tags.includes(tag)
@@ -267,6 +267,7 @@ const ProjectsPage = () => {
             </div>
           ) : (
             <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+              <DialogTitle></DialogTitle>
               <DialogTrigger asChild>
                 <Button
                   variant="outline"
@@ -316,80 +317,88 @@ const ProjectsPage = () => {
                     />
                   </div>
                   {/* --- Tech Stack --- */}
-{/* --- Tech Stack (simple dropdown + search) --- */}
-<div className="relative w-full">
-  {/* Trigger */}
-  <button
-    type="button"
-    onClick={() => setTechStackOpen((o) => !o)}
-    className="w-full border rounded px-3 py-2 flex justify-between items-center"
-  >
-    {formData.techStack.length > 0
-      ? `${formData.techStack.length} technolog${formData.techStack.length > 1 ? "ies" : "y"} selected`
-      : "Select technologies..."}
-    <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-  </button>
+                  {/* --- Tech Stack (simple dropdown + search) --- */}
+                  <div className="relative w-full">
+                    {/* Trigger */}
+                    <button
+                      type="button"
+                      onClick={() => setTechStackOpen((o) => !o)}
+                      className="w-full border rounded px-3 py-2 flex justify-between items-center"
+                    >
+                      {formData.techStack.length > 0
+                        ? `${formData.techStack.length} technolog${
+                            formData.techStack.length > 1 ? "ies" : "y"
+                          } selected`
+                        : "Select technologies..."}
+                      <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                    </button>
 
-  {/* Dropdown */}
-  {techStackOpen && (
-    <div className="absolute z-50 mt-1 w-full border rounded bg-white shadow p-2">
-      {/* Search */}
-      <input
-        type="text"
-        value={techStackSearch}
-        onChange={(e) => setTechStackSearch(e.target.value)}
-        placeholder="Search..."
-        className="w-full px-2 py-1 mb-2 border rounded"
-      />
+                    {/* Dropdown */}
+                    {techStackOpen && (
+                      <div className="absolute z-50 mt-1 w-full border rounded bg-white shadow p-2">
+                        {/* Search */}
+                        <input
+                          type="text"
+                          value={techStackSearch}
+                          onChange={(e) => setTechStackSearch(e.target.value)}
+                          placeholder="Search..."
+                          className="w-full px-2 py-1 mb-2 border rounded"
+                        />
 
-      {/* List */}
-      <div className="max-h-48 overflow-auto">
-        {filteredTechStack.length === 0 && (
-          <div className="px-2 py-1 text-gray-500">No technology found.</div>
-        )}
+                        {/* List */}
+                        <div className="max-h-48 overflow-auto">
+                          {filteredTechStack.length === 0 && (
+                            <div className="px-2 py-1 text-gray-500">
+                              No technology found.
+                            </div>
+                          )}
 
-        {filteredTechStack.map((tech) => (
-          <button
-            key={tech.value}
-            type="button"
-            onClick={(e) => {
-              e.preventDefault();      // ensure no native behavior interferes
-              e.stopPropagation();     // keep event local
-              handleToggleTech(tech.value);
-            }}
-            className="w-full text-left px-2 py-1 hover:bg-gray-100 flex justify-between items-center"
-          >
-            <span>{tech.label}</span>
-            {formData.techStack.includes(tech.value) && (
-              <CheckIcon className="h-4 w-4 text-primary" />
-            )}
-          </button>
-        ))}
-      </div>
-    </div>
-  )}
+                          {filteredTechStack.map((tech) => (
+                            <button
+                              key={tech.value}
+                              type="button"
+                              onClick={(e) => {
+                                e.preventDefault(); // ensure no native behavior interferes
+                                e.stopPropagation(); // keep event local
+                                handleToggleTech(tech.value);
+                              }}
+                              className="w-full text-left px-2 py-1 hover:bg-gray-100 flex justify-between items-center"
+                            >
+                              <span>{tech.label}</span>
+                              {formData.techStack.includes(tech.value) && (
+                                <CheckIcon className="h-4 w-4 text-primary" />
+                              )}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
 
-  {/* Selected Tech Stack Badges (outside dropdown) */}
-  <div className="mt-2 flex flex-wrap gap-2">
-    {formData.techStack.map((value) => {
-      const label =
-        availableTechStack.find((t) => t.value === value)?.label || value;
-      return (
-        <Badge key={value} variant="secondary" className="flex items-center gap-2">
-          {label}
-          <button
-            type="button"
-            onClick={() => handleToggleTech(value)}
-            className="text-xs font-bold text-red-500 hover:text-red-700"
-          >
-            &times;
-          </button>
-        </Badge>
-      );
-    })}
-  </div>
-</div>
-
+                    {/* Selected Tech Stack Badges (outside dropdown) */}
+                    <div className="mt-2 flex flex-wrap gap-2">
+                      {formData.techStack.map((value) => {
+                        const label =
+                          availableTechStack.find((t) => t.value === value)
+                            ?.label || value;
+                        return (
+                          <Badge
+                            key={value}
+                            variant="secondary"
+                            className="flex items-center gap-2"
+                          >
+                            {label}
+                            <button
+                              type="button"
+                              onClick={() => handleToggleTech(value)}
+                              className="text-xs font-bold text-red-500 hover:text-red-700"
+                            >
+                              &times;
+                            </button>
+                          </Badge>
+                        );
+                      })}
+                    </div>
+                  </div>
 
                   <div className="space-y-1">
                     <Label className="font-normal" htmlFor="roles">
@@ -477,11 +486,11 @@ const ProjectsPage = () => {
                     <SelectContent>
                       <SelectGroup>
                         <SelectLabel>Levels</SelectLabel>
-                        <SelectItem value="Beginner">Beginner</SelectItem>
-                        <SelectItem value="Intermediate">
+                        <SelectItem value="beginner">Beginner</SelectItem>
+                        <SelectItem value="intermediate">
                           Intermediate
                         </SelectItem>
-                        <SelectItem value="Advanced">Advanced</SelectItem>
+                        <SelectItem value="advanced">Advanced</SelectItem>
                       </SelectGroup>
                     </SelectContent>
                   </Select>
@@ -522,7 +531,7 @@ const ProjectsPage = () => {
               description={project.description}
               numOfCollab={project.contributors.length}
               status={project.status}
-              numOfRequests={0}
+              numOfRequests={project.joinRequests.length}
               id={project._id}
             />
           ))

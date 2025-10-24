@@ -21,7 +21,7 @@ import { Label } from "@/components/ui/label"
 import CollaboratorProfileTile from '@/components/CollaboratorProfileTile'
 import Footer from '@/components/Footer';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchProject, requestToJoinProject } from '@/redux-app/features/project/projectSlice';
+import { fetchProject, getJoinRequests, requestToJoinProject, updateJoinRequestStatus } from '@/redux-app/features/project/projectSlice';
 import toast from 'react-hot-toast';
 
 const getIconUrl = (name) => {
@@ -33,17 +33,20 @@ function ProjectDetailsPage() {
   const dispatch = useDispatch(); 
   const [joinMessage, setJoinMessage] = useState('');
   const [joinDialogOpen, setJoinDialogOpen] = useState(false);
+  const [selectedRole, setSelectedRole] = useState('');
 
-  const { project, projectLoading, projectError } = useSelector(
+  const { project, projectLoading, projectError, collaborationRequests } = useSelector(
     (state) => state.project
   );
   const { user } = useSelector((state) => state.auth);
 
   const isOwner = user && project && user.user._id === project.ownerId._id;
-
+  const isCollaborator = user && project && project.contributors?.some(contributor => String(contributor.userId._id) === String(user.user._id));
+  
   useEffect(() => {
     dispatch(fetchProject(id));
-  }, [dispatch, id]);
+   isOwner && dispatch(getJoinRequests(id));
+  }, [dispatch, id, isOwner]);
 
   const handleJoinRequest = async (e) => {
     e.preventDefault();
@@ -55,6 +58,7 @@ function ProjectDetailsPage() {
     const result = await dispatch(requestToJoinProject({
       projectId: id,
       userId: user.user._id,
+      requestedRole: selectedRole,
       message: joinMessage,
     }));
 
@@ -66,6 +70,28 @@ function ProjectDetailsPage() {
       toast.error(result.payload || "Failed to send join request.");
     }
   };
+
+  const handleRespondToRequest = async (requestId, status) => {
+  
+    const result = await dispatch(updateJoinRequestStatus({
+      requestId,
+      status,
+    }));
+
+    if (updateJoinRequestStatus.fulfilled.match(result)) {
+      toast.success(`Request has been ${status}.`);
+      dispatch(fetchProject(id));
+      dispatch(getJoinRequests(id));
+      return true; // Indicate success
+    } else {
+      toast.error(result.payload || `Failed to ${status} request.`);
+      return false; // Indicate failure
+    }
+  };
+
+  const handleAccept = (requestId) => handleRespondToRequest(requestId, 'accepted');
+  const handleReject = (requestId) => handleRespondToRequest(requestId, 'rejected');
+
 
   if (projectLoading) {
     return <div>Loading project details...</div>;
@@ -93,41 +119,67 @@ function ProjectDetailsPage() {
                           <Button variant="outline">Edit</Button>
                         </NavLink>
                       )}
-                      <Dialog open={joinDialogOpen} onOpenChange={setJoinDialogOpen}>
-                        <form onSubmit={handleJoinRequest}>
-                          
-                          <DialogTrigger asChild>
-                            <button className='bg-[#4B0082] text-white px-6 py-1 rounded-md cursor-pointer'>Join</button>
-                          </DialogTrigger>
-                          <DialogContent className="sm:max-w-[425px]">
+                     { !isOwner && (
+                       <Dialog open={joinDialogOpen} onOpenChange={setJoinDialogOpen}>
+                        <DialogTrigger asChild>
+  <button
+    className={`px-6 py-1 rounded-md ${isCollaborator ? 'bg-gray-300 text-gray-700 cursor-not-allowed' : 'bg-[#4B0082] text-white cursor-pointer'}`}
+    disabled={isCollaborator}
+  >
+    {isCollaborator ? "You're a collaborator" : 'Join'}
+  </button>
+</DialogTrigger>
+                        <DialogContent className="sm:max-w-[425px]">
+                          <form onSubmit={handleJoinRequest}>
                             <DialogHeader>
                               <DialogTitle>Join {project.title}</DialogTitle>
                               <DialogDescription>
                                 Want to join the {project.title} project?
-                              
                               </DialogDescription>
                             </DialogHeader>
                             <div className="grid gap-4">
                               <div className="grid gap-3">
-                                <Label htmlFor="name-1" className='font-normal'>Let the project admin know why you&apos;re interested in joining this project. (Max 300 characters) Optional</Label>
+                                <Label htmlFor="role-select" className='font-normal'>Select Role</Label>
+                                <select
+                                  id="role-select"
+                                  value={selectedRole}
+                                  onChange={(e) => setSelectedRole(e.target.value)}
+                                  className="border rounded-md p-2"
+                                  required
+                                >
+                                  <option value="">Select a role...</option>
+                                  {project.rolesNeeded.map((role) => (
+                                    <option key={role} value={role}>
+                                      {role}
+                                    </option>
+                                  ))}
+                                </select>
+                              </div>
+                              <div className="grid gap-3">
+                                <Label htmlFor="name-1" className='font-normal'>
+                                      Let the project admin know why you&apos;re interested in joining this project. (Max 300 characters) Optional
+                                </Label>
                                 <textarea 
                                   id="name-1"  
                                   rows="4" 
                                   name="name"
                                   value={joinMessage}
-                                  onChange={(e) => setJoinMessage(e.target.value)}></textarea>
+                                  onChange={(e) => setJoinMessage(e.target.value)}
+                                ></textarea>
                               </div>
-                              
                             </div>
                             <DialogFooter>
-                              <DialogClose asChild>
-                                <Button variant="outline">Cancel</Button>
-                              </DialogClose>
+                              <Button type="button" variant="outline" onClick={() => setJoinDialogOpen(false)}>
+                                Cancel
+                              </Button>
                               <Button type="submit">Join</Button>
                             </DialogFooter>
-                          </DialogContent>
-                        </form>
+                          </form>
+                        </DialogContent>
                       </Dialog>
+                     )
+                      
+                     }
                     </div>
                 </section>
                 <section className='grid md:grid-cols-5 grid-cols-1 gap-3 mt-7'>
@@ -174,27 +226,37 @@ function ProjectDetailsPage() {
                         </div>
                     </div>
                     <div className=' border-2 border-black rounded-2xl w-full h-fit md:col-span-2 p-6'>
-                        <div className='flex justify-between'>
-                            <p className='font-semibold'>Collaborators</p>
-                            {/* <div className='relative'>
+                        { isOwner && <div className='flex justify-between'>
+                          <p className='font-semibold'> Pending Collaborators</p>
+                            <div className='relative'>
                                 <div className='w-[10px] h-[10px] bg-green-600 rounded-full' ></div>
-                                <p className='absolute text-xs top-[-13px] right-[-4px]'>{project.pendingCollaborators.length}</p>
-                            </div> */}
-                        </div>
+                                <p className='absolute text-xs top-[-13px] right-[-4px]'>{project.joinRequests.length}</p>
+                            </div>
+                        </div>}
 
-                        {/* <div className='flex flex-col gap-6 mt-4'>
+                        <div className='flex flex-col gap-6 mt-4'>
                            {
-                            project.pendingCollaborators.map((person) => (
-                                    <CollaboratorProfileTile person={person} pending={"pending"}/>
+                           collaborationRequests.map((request) => (
+                                    
+                                      request.status === "pending" ? <CollaboratorProfileTile 
+                                      key={request._id} 
+                                      person={request.user} 
+                                      role={request.requestedRole}
+                                      request={request}
+                                      isOwner={isOwner}
+                                      onAccept={handleAccept}
+                                      onReject={handleReject}/> : null
+                                    
                             ))
                            } 
-                        </div> */}
-
+                        </div>
+                          <p className='font-semibold'>Collaborators</p>
+                         
                         {project.contributors && project.contributors.length > 0 ? (
                         <div className='flex flex-col gap-6 mt-4'>
                            {
                             project.contributors.map((person) => (
-                                <CollaboratorProfileTile key={person.userId} person={person}/>
+                                <CollaboratorProfileTile key={person._id} person={person.userId}/>
                             ))
                            } 
                         </div>

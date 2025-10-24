@@ -4,7 +4,8 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 const initialState = {
     projectLoading:false,
     project: null,
-    projectError: null
+    projectError: null,
+    collaborationRequests:[]
 };
 
 export const fetchProject = createAsyncThunk('/project/fetchProject', async (projectId) => {
@@ -61,6 +62,7 @@ export const deleteProject = createAsyncThunk('/project/deleteProject', async (p
 
 export const requestToJoinProject = createAsyncThunk('/join-requests/create', async (data, thunkAPI) => {
     console.log("sending join request....")
+    console.log(data)
     try {
         const res = await api.post(`/join-requests/create`,data)
 
@@ -70,9 +72,48 @@ export const requestToJoinProject = createAsyncThunk('/join-requests/create', as
         if (error.response && error.response.data.message) {
             return thunkAPI.rejectWithValue(error.response.data.message);
         }
-        return thunkAPI.rejectWithValue('Something went wrong while deleting the project.');
+        return thunkAPI.rejectWithValue('Something went wrong while sending join request');
     }
 })
+
+export const getJoinRequests = createAsyncThunk(
+    '/join-requests/fetch', // Changed action type
+    async (projectId, thunkAPI) => {
+        console.log("fetching join requests....");
+        try {
+            const res = await api.get(`/join-requests/project/${projectId}`); // Changed to GET
+
+            console.log(res);
+            return res.data.requests;
+        } catch (error) {
+            if (error.response && error.response.data.message) {
+                return thunkAPI.rejectWithValue(error.response.data.message);
+            }
+            return thunkAPI.rejectWithValue('Something went wrong while fetching join requests');
+        }
+    }
+);
+
+
+
+export const updateJoinRequestStatus = createAsyncThunk(
+    '/join-requests/change-status', // Changed action type
+    async (data, thunkAPI) => {
+        console.log("responding to join requests....");
+        console.log({status: data.status})
+        try {
+            const res = await api.patch(`/join-requests/${data.requestId}/status/`, {status: data.status}); // Changed to GET
+
+            console.log(res);
+            return res.data;
+        } catch (error) {
+            if (error.response && error.response.data.message) {
+                return thunkAPI.rejectWithValue(error.response.data.message);
+            }
+            return thunkAPI.rejectWithValue('Something went wrong while responding to join requests');
+        }
+    }
+);
 
 
 export const projectSlice = createSlice({
@@ -134,6 +175,21 @@ export const projectSlice = createSlice({
             .addCase(deleteProject.rejected, (state, action) => {
                 state.projectLoading = false,
                 state.projectError = action.payload
+            })
+
+            // projectRequest
+            .addCase(getJoinRequests.pending, (state) => {
+                state.projectLoading = true;
+            })
+            .addCase(getJoinRequests.fulfilled, (state, action) => {
+                state.projectLoading = false;
+                state.collaborationRequests = action.payload;
+                state.projectError = null;
+            })
+            .addCase(getJoinRequests.rejected, (state, action) => {
+                state.projectLoading = false;
+                state.collaborationRequests = [];
+                state.projectError = action.payload;
             });
     }
 });
